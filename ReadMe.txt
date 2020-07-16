@@ -1,0 +1,13 @@
+可兑官网地址：youxiangdui.net
+可兑官网后台地址：http://youxiangdui.net/index.php?admin_dir=dh_kedui#index_connent
+官网后台账号：hf_yuan
+密码：ch123456789
+
+可兑系统后台地址：kd.youxiangdui.net
+账号：ChenDingYuan
+密码：hf_yuan123
+账号：jsb001
+密码：ch123456789
+
+
+
