@@ -1,0 +1,151 @@
+<div class="codearea">
+	#[#loop type($typeid) $t#]#
+	 <div class="list-title list-title2">
+		<p class="type-htmldir">#[#$t['htmldir']#]#</p>
+		<h4 class="type-title"><a title="#[#$t['typename']#]#" href="#[#category::url($t['catid'])#]#">#[#$t['typename']#]#</a></h4>
+	</div>
+	<div class="type-list-pic">
+		#[#loop archive(0,$t['typeid'],0,'0,0,0',20,'aid',6,false,0) $archive#]#
+		#[#if $i%3==0 && $i>0#]#
+		<div class="clearfix"></div>
+		#[#/if#]#
+		<div class="col-sm-4">
+			<div class="type-list-pic-item">
+				<div class="type-list-pic-img">
+					<a href="#[#$archive['url']#]#" target="_blank"><img alt="#[#$archive['stitle']#]#" src="#[#$archive['thumb']#]#" /></a>
+				</div>
+				<div class="type-list-pic-text">
+					<h4>#[#$archive['title']#]#</h4>
+					<p>#[#cut(strip_tags($archive['introduce']),66)#]#</p>
+				</div>
+				<div class="type-list-pic-more">
+					<a href="#[#$archive['url']#]#" target="_blank">more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		#[#/loop#]#
+	</div>
+	<div class="blank30"></div>
+	#[#/loop#]#
+</div>
+<div class="viewarea">
+	<div class="list-title list-title2">
+		<p class="column-htmldir">htmldir</p>
+		<h4 class="column-title"><a>分类子栏目一</a></h4>
+	</div>
+	<div class="column-list-pic">
+		<div class="col-sm-4">
+			<div class="column-list-pic-item">
+				<div class="column-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-1.jpg" /></a>
+				</div>
+				<div class="column-list-pic-text">
+					<h4>内容标题一</h4>
+					<p>内容简介又称内容大要、内容提要、内容摘要等。扼要介绍图书内容和读者对象的说明。又称内容说明、内容简介、内容介绍，是向读者介绍本书内容、特点和读者对象，便于读者了解选购…</p>
+				</div>
+				<div class="column-list-pic-more">
+					<a>more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="column-list-pic-item">
+				<div class="column-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-2.jpg" /></a>
+				</div>
+				<div class="column-list-pic-text">
+					<h4>内容标题一</h4>
+					<p>内容简介又称内容大要、内容提要、内容摘要等。扼要介绍图书内容和读者对象的说明。又称内容说明、内容简介、内容介绍，是向读者介绍本书内容、特点和读者对象，便于读者了解选购…</p>
+				</div>
+				<div class="column-list-pic-more">
+					<a>more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="column-list-pic-item">
+				<div class="column-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-3.jpg" /></a>
+				</div>
+				<div class="column-list-pic-text">
+					<h4>内容标题一</h4>
+					<p>内容简介又称内容大要、内容提要、内容摘要等。扼要介绍图书内容和读者对象的说明。又称内容说明、内容简介、内容介绍，是向读者介绍本书内容、特点和读者对象，便于读者了解选购…</p>
+				</div>
+				<div class="column-list-pic-more">
+					<a>more  &gt;</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="blank30"></div>
+	<div class="list-title list-title2">
+		<p class="column-htmldir">htmldir</p>
+		<h4 class="column-title"><a>分类子栏目二</a></h4>
+	</div>
+	<div class="column-list-pic">
+		<div class="col-sm-4">
+			<div class="column-list-pic-item">
+				<div class="column-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-1.jpg" /></a>
+				</div>
+				<div class="column-list-pic-text">
+					<h4>内容标题一</h4>
+					<p>内容简介又称内容大要、内容提要、内容摘要等。扼要介绍图书内容和读者对象的说明。又称内容说明、内容简介、内容介绍，是向读者介绍本书内容、特点和读者对象，便于读者了解选购…</p>
+				</div>
+				<div class="column-list-pic-more">
+					<a>more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="column-list-pic-item">
+				<div class="column-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-2.jpg" /></a>
+				</div>
+				<div class="column-list-pic-text">
+					<h4>内容标题一</h4>
+					<p>内容简介又称内容大要、内容提要、内容摘要等。扼要介绍图书内容和读者对象的说明。又称内容说明、内容简介、内容介绍，是向读者介绍本书内容、特点和读者对象，便于读者了解选购…</p>
+				</div>
+				<div class="column-list-pic-more">
+					<a>more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="column-list-pic-item">
+				<div class="column-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-3.jpg" /></a>
+				</div>
+				<div class="column-list-pic-text">
+					<h4>内容标题一</h4>
+					<p>内容简介又称内容大要、内容提要、内容摘要等。扼要介绍图书内容和读者对象的说明。又称内容说明、内容简介、内容介绍，是向读者介绍本书内容、特点和读者对象，便于读者了解选购…</p>
+				</div>
+				<div class="column-list-pic-more">
+					<a>more  &gt;</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="blank30"></div>
+	<div class="list-title list-title2">
+		<p class="column-htmldir">htmldir</p>
+		<h4 class="column-title"><a>分类子栏目三</a></h4>
+	</div>
+	<div class="column-list-pic">
+		<div class="col-sm-4">
+			<div class="column-list-pic-item">
+				<div class="column-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-1.jpg" /></a>
+				</div>
+				<div class="column-list-pic-text">
+					<h4>内容标题一</h4>
+					<p>内容简介又称内容大要、内容提要、内容摘要等。扼要介绍图书内容和读者对象的说明。又称内容说明、内容简介、内容介绍，是向读者介绍本书内容、特点和读者对象，便于读者了解选购…</p>
+				</div>
+				<div class="column-list-pic-more">
+					<a>more  &gt;</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="blank30"></div>
+</div>

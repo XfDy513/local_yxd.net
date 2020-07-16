@@ -1,0 +1,21 @@
+{loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $i $archive}
+
+
+
+
+
+
+
+<div class="col-md-6 blog-right-grid wow zoomIn animated" data-wow-delay=".5s">
+	<a href="{$archive['url']}" target="_blank"><img alt="{$archive['stitle']}" src="{$archive['thumb']}" onerror='this.src="{config::get('onerror_pic')}"'  class="img-responsive"></a>
+	<h4><a href="{$archive['url']}" target="_blank">{$archive['title']}</a></h4>
+	<p>{$archive[intro]}</p>
+	<a href="{$archive['url']}" class="buy btn-wayra" target="_blank">{lang(more)}</a>
+</div>
+
+
+
+
+
+
+{/loop}

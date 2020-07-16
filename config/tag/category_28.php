@@ -1,0 +1,1 @@
+a:10:{s:10:"onlymodify";s:0:"";s:4:"name";s:30:"首页第二行子栏目循环";s:7:"tagfrom";s:8:"category";s:5:"catid";s:3:"129";s:8:"titlenum";s:2:"20";s:7:"textnum";s:2:"60";s:11:"tagtemplate";s:24:"tag_category_index2.html";s:10:"tagcontent";s:4:"null";s:6:"submit";s:12:"제출하다";s:5:"attr1";s:1:"0";}

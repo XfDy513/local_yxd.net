@@ -1,0 +1,25 @@
+{loop plugins::categoryinfo($_catid,$_titlenum,$_textnum) $cat}
+
+
+<div class="section3">
+	<div class="container">
+		<div class="s3 clearfix">
+			<div class="s3-1">
+				<h4>{$cat['catname']}</h4>
+				<p>{$cat['htmldir']}</p>
+				<h5><i class="icon-call-end"></i>：{get('tel')}</h5>
+				<h5><i class="icon-drop"></i>：<span>{get('address')}</span></h5>
+				<a class="more" title="{$cat['catname']}" href="{$cat['url']}" target="_blank"><em></em>{lang('more')} &gt;</a>
+			</div>
+			<div class="s3-2">
+				<h4>{$cat['catname']}</h4>
+				<span>{$cat['htmldir']}</span>
+				<p>{$cat['categorycontent']}</p>
+				<a class="more" title="{$cat['catname']}" href="{$cat['url']}" target="_blank">{lang('more')}  &gt;</a>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+
+{/loop}

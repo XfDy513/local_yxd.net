@@ -1,0 +1,419 @@
+{template_shopping 'header.html'}
+
+{template_shopping 'top-product.html'}
+
+<div class="show_products1">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 col-lg-5 col-md-6">
+				<div class="show_products1-l">
+					<div class="swiper-container swiper-shop-pic">
+						<div id="lightgallery" role="listbox" class="swiper-wrapper">
+							{loop $archive['pics'] $i $pic}
+							<div class="swiper-slide{if $i==1} active{/if}" data-src="{$pic['url']}" data-sub-html="{$pic['alt']}">
+								<div class="show_products1-item">
+									<a href="" rel="lightbox['roadtrip']"><img src="{$pic['url']}" alt="{$pic['alt']}" /></a>
+								</div>
+							</div>
+							{/loop}
+						</div>
+						<div class="swiper-pagination swiper-shop-pic-pagination"></div>
+					</div>
+					<div class="clearfix blank30"></div>
+					{getcollect($archive['aid'])}
+					{getraise($archive['praise'],$archive['aid'])}
+				</div>
+			</div>
+			<div class="col-xs-12 col-lg-5 col-md-6">
+				<div class="shop-box">
+					<div class="shop-title">
+						<h1>{$archive['title']}</h1>
+						<p>{$archive['subtitle']}</p>
+					</div>
+					<div class="shop-oldprice">
+						<dt>{lang('price')}</dt>
+						<dd>{lang('unit')} <span>{$archive['oldprice']}</span></dd>
+					</div>
+					<div class="shop-price">
+						<dt>{lang('membership_price')}</dt>
+						<dd>{lang('unit')} <span id="shop-price"></span></dd>
+					</div>
+					<div class="shop-salesnum">
+						<dt>{lang('sales_volume')}</dt>
+						<dd>{$archive['salesnum']}</dd>
+					</div>
+					<div class="shop-salesnum">
+						<dt>{lang('stock')}</dt>
+						<dd id="shop-inventory"></dd>
+					</div>
+					<form>
+						<div class="shop-type">
+							<div id="columntype"></div>
+							<div class="shop-type-info">
+								<dt>{lang('numbers')}</dt>
+								<dd>
+									<input type=text name=amount class="shop-number" id="thisnum" value="1" onfocus=""  onblur="setthisnum($('#shop-inventory').text(),'{url('archive/getshoppinginventory/aid/'.$archive['aid'])}')">
+									<button class="shop-number-btn1" type=button value="上" onClick="setadd('{url('archive/getshoppinginventory/aid/'.$archive['aid'])}')"><span class="glyphicon glyphicon-menu-up"></span></button>
+									<button class="shop-number-btn2" type=button value="下" onClick="setmin()"><span class="glyphicon glyphicon-menu-down"></span></button>
+								</dd>
+							</div>
+						</div>
+						<div class="shop-buy">
+							<a target="_blank" href="javascript:void(0);" onclick="getshoping({$archive['aid']},true)" name="buy" class="buy">{lang('buy')}</a>
+							<a name="buy" href="javascript:void(0);" onclick="getshoping({$archive['aid']},false)"  id="dialog_link" class="btnCart shoppingcart"  data-toggle="modal" data-target=".bs-example-modal-lg-shopping" aria-hidden="true"><span class="glyphicon glyphicon-shopping-cart"></span>{lang('makeorders')}</a>
+						</div>
+						<div id="buyurl">
+						</div>
+					</form>
+
+				</div>
+			</div>
+			<div class="clearfix hidden-lg"></div>
+			<div class="col-lg-2">
+				<div class="show_products1-r">
+					<div class="show_products1-r-title">
+						<h4>{lang('look_and_see')}</h4>
+					</div>
+					<div class="shop-show-right-pic-list">
+						<div class="swiper-container swiper-shop-show-right">
+							<div class="swiper-wrapper">
+								{loop archive($catid,0,0,'0,0,0',12,'aid',5,false,0) $arc}
+								<div class="swiper-slide">
+									<div class="shop-show-right-pic-list-img">
+										<a title="{$arc['stitle']}" href="{$arc['url']}" target="_blank">
+											<img alt="{$arc['stitle']}" src="{$arc['thumb']}" class="swiper-lazy" /><div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+										</a>
+										<p><a>{lang('unit')}{$arc['attr2']}</a></p>
+									</div>
+								</div>
+								{/loop}
+							</div>
+						</div>
+						<div class="swiper-shop-show-right-next"><span class="glyphicon glyphicon-chevron-up"></span></div>
+						<div class="swiper-shop-show-right-prev"><span class="glyphicon glyphicon-chevron-down"></span></div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+
+
+<div class="container" id="shop_container" style="display:none">
+	<div class="combination-box">
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active">
+				<a href="#combination-info" aria-controls="combination-info" role="tab" data-toggle="tab">{lang('combination_purchase')}</a>
+			</li>
+		</ul>
+
+		<div class="tab-content" >
+			<div class="combination">
+				<div class="">
+					<img src="{$archive['thumb']}" class="img-responsive">
+					<p>{$archive['title']}</p>
+					<p id="combintshop-type"></p>
+					<p>
+						<label class="checkbox-inline">
+							<input type="checkbox" value="option1" disabled="disabled" checked="checked">
+						{lang('unit')} <span id="combintshop-price"></span>
+						</label>
+					</p>
+				</div>
+				<div class="combination-shopping-list">
+
+						<div id="getcombineddata">
+							<div class="combination-shopping-list-swiper col-lg-2 col-md-3 col-xs-4">
+								<img src="{$archive['thumb']}" class="img-responsive">
+								<p>{$archive['title']}</p>
+								<p></p>
+								<p>
+									<label class="checkbox-inline">
+										<input type="checkbox" value="option1"> {lang('unit')} <p><p>
+								</label>
+							</p>
+							</div>
+
+						</div>
+					</div>
+					<!-- Add Pagination -->
+
+
+				<!-- Initialize Swiper -->
+
+				<div class="combination-shopping-price">
+					<div class="">
+						<!--<p>已选择0个商品</p>-->
+						<p>{lang('combination_purchase')}：{lang('unit')} <span id='combinedshopping-price'>0</span></p>
+						<p><input type="button" onclick="buycombinedshopping('{url('archive/orders')}','{lang('unchecked_combination')}',{$archive['aid']})" value="{lang('buy')}" class="btn btn-default"></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+
+<div class="show_products2">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9 col-md-8 col-lg-push-3 col-md-push-4 show_products2_box">
+				<div class="row">
+					<div class="show_products2-right">
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active">
+								<a href="#shop-info" aria-controls="shop-info" role="tab" data-toggle="tab">{lang('commodity_information')}</a>
+							</li>
+							<li role="presentation">
+								<a href="#shop-comment" aria-controls="shop-comment" role="tab" data-toggle="tab">{lang('accumulative_evaluation')}({comment::countcomment($archive['aid'])})</a>
+							</li>
+							{loop $field $f}
+							<?php
+						$name=$f['name'];
+						if (!preg_match('/^my_/', $name) || preg_match('/^my_field/', $name)) {
+							unset($field[$name]);
+							continue;
+						}
+						$category = category::getInstance();
+						$sonids = $category->sons(setting::$var['archive'][$name]['catid']);
+							if(setting::$var['archive'][$name]['catid'] != $data['catid'] && !in_array($data['catid'],$sonids)
+							&& (setting::$var['archive'][$name]['catid'])){
+							unset($field[$name]);
+							continue;
+							}
+							if (!isset($data[$name]))
+							$data[$name]='';
+
+							?>
+							<?php if( ((setting::$var['archive'][$name]['isshoping'] == '0')|| (setting::$var['archive'][$name]['isshoping'] == ''))
+           && setting::$var['archive'][$name]['type']=='mediumtext' && $archive[setting::$var['archive'][$name]['name']] !=''){?>
+							<li role="presentation">
+								<a href="#shop-<?php echo setting::$var['archive'][$name]['name']; ?>" aria-controls="shop-<?php echo setting::$var['archive'][$name]['name']; ?>" role="tab" data-toggle="tab"><?php echo setting::$var['archive'][$name]['cname_'.lang::getistemplate()]; ?></a>
+							</li>
+							<?php }?>
+							{/loop}
+
+						</ul>
+						<!-- Tab panes -->
+						<div class="tab-content show_products2-content">
+							<div role="tabpanel" class="tab-pane active" id="shop-info">
+								<div class="show_products2-right-content1">
+									{$archive['content']}
+								</div>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="shop-comment">
+								<div class="show_products2-right-content2">
+
+									{comment_js($archive['aid'])}
+
+									{template 'comment/comment.html'}
+								</div>
+							</div>
+							{loop $field $f}
+							<?php
+						$name=$f['name'];
+						if (!preg_match('/^my_/', $name) || preg_match('/^my_field/', $name)) {
+							unset($field[$name]);
+							continue;
+						}
+						$category = category::getInstance();
+						$sonids = $category->sons(setting::$var['archive'][$name]['catid']);
+							if(setting::$var['archive'][$name]['catid'] != $data['catid'] && !in_array($data['catid'],$sonids)
+							&& (setting::$var['archive'][$name]['catid'])){
+							unset($field[$name]);
+							continue;
+							}
+							if (!isset($data[$name]))
+							$data[$name]='';
+
+							?>
+							<?php if( ((setting::$var['archive'][$name]['isshoping'] == '0')|| (setting::$var['archive'][$name]['isshoping'] == ''))
+         && setting::$var['archive'][$name]['type']=='mediumtext' && $archive[setting::$var['archive'][$name]['name']] !='' ){?>
+							<div role="tabpanel" class="tab-pane" id="shop-<?php echo setting::$var['archive'][$name]['name']; ?>">
+								<div class="show_products2-right-content2">
+									<?php echo $archive[setting::$var['archive'][$name]['name']]; ?>
+								</div>
+							</div>
+							<?php }?>
+							{/loop}
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-4 col-lg-pull-9 col-md-pull-8">
+				<div class="show_products2-left">
+					<h4>{lang('producttype')}</h4>
+					<ul>
+						{loop categories($topid) $t}
+						<li><a href="{$t['url']}" title="{$t['catname']}">{$t['catname']}</a></li>
+						{/loop}
+					</ul>
+				</div>
+				<div class="show_products2-left2">
+					{tag_shop_商城内容页第二行左侧栏目二列表6条}
+					<div class="blank10"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="show_products3">
+	<div class="container">
+		<div class="show_products3-title">
+			<div class="swiper-show_products3-next"><span class="glyphicon glyphicon-menu-right"></span></div>
+			<div class="swiper-show_products3-prev"><span class="glyphicon glyphicon-menu-left "></span></div>
+			<h4>{lang('guess_youre_interested')}</h4>
+		</div>
+		<div class="swiper-container swiper-show_products3">
+			<div class="swiper-wrapper">
+				{tag_shop_商城内容页第三行栏目滚动内容}
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="show_products4">
+	<div class="container">
+		<div class="show_products4-inner">
+			{tag_商城内容页第四行栏目内容5条}
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!-- 购买商品 -->
+<script type="text/javascript">
+	<!--
+	$(function () {
+		var url='{url("archive/getarchiveprice/aid/".$archive["aid"])}';
+		var myfield="{$archive['my_field']}";
+		var setfieldNameurl='{url("archive/getfieldName")}';
+		var setleixingurl='{url("archive/getarchiveType")}';
+		var aid='{$archive["aid"]}';
+		var shopingurl="{url('archive/doorders/aid/',true)}";
+		getshopping(aid,url,myfield,setfieldNameurl,setleixingurl,shopingurl);
+//组合商品
+		var combined='{$archive["combined"]}';
+		var unit="{lang('unit')}";
+		var priceurl='{url("archive/getarchiveprice")}';
+		getcombinedshopping(combined,setleixingurl,unit,priceurl);
+
+		var buyurl={$archive['buyurl']};
+		loadbuyurl(buyurl);
+	});
+	//-->
+</script>
+
+
+
+
+
+<!-- 商品图片切换 -->
+<script>
+	var myswiper = new Swiper('.swiper-shop-pic', {
+		slidesPerView: 1,
+		spaceBetween : 10,
+		pagination: {
+			el: '.swiper-shop-pic-pagination',
+			grabCursor: true,
+			dynamicBullets: true,
+		},
+		lazy: true,
+		loop: true,
+	});
+</script>
+
+<!-- 右侧图片上下切换 -->
+<script>
+	var _width = $(window).width();
+	if(_width >= 1200){
+		var myswiper = new Swiper('.swiper-shop-show-right', {
+			direction: 'vertical',
+			slidesPerView: 3,
+			spaceBetween: 15,
+			loop: true,
+			mousewheel: true,
+			navigation: {
+				nextEl: '.swiper-shop-show-right-next',
+				prevEl: '.swiper-shop-show-right-prev',
+			},
+			lazy: true,
+		});
+	}else{
+		var myswiper = new Swiper('.swiper-shop-show-right', {
+			slidesPerView: 5,
+			spaceBetween: 15,
+			loop: true,
+			mousewheel: true,
+			breakpointsInverse: true,
+			breakpoints: {
+				320: {slidesPerView: 1},
+				480: {slidesPerView: 2},
+				768: {slidesPerView: 3},
+				992: {slidesPerView: 5},
+				1200: {slidesPerView: 4},
+			},
+			navigation: {
+				nextEl: '.swiper-shop-show-right-next',
+				prevEl: '.swiper-shop-show-right-prev',
+			},
+			lazy: true,
+		});
+	};
+</script>
+
+
+<!-- 商品内页底部相关图片切换 -->
+<script>
+	var mySwiper = new Swiper ('.swiper-show_products3', {
+		loop: true,
+		slidesPerView : 1,
+		slidesPerGroup : 1,
+		spaceBetween : 10,
+		lazy: true,
+		autoHeight: true, //高度随内容变化
+		breakpointsInverse: true,
+		breakpoints: {
+			320: {slidesPerView: 1},
+			480: {slidesPerView: 2},
+			768: {slidesPerView: 3},
+			992: {slidesPerView: 4},
+			1200: {slidesPerView: 5},
+		},
+		navigation: {nextEl: '.swiper-show_products3-next',prevEl: '.swiper-show_products3-prev',},
+	});
+</script>
+
+
+
+
+
+
+
+<!-- 图册 -->
+
+<link href="{$base_url}/common/plugins/lightgallery/css/lightgallery.css" rel="stylesheet">
+<script src="{$base_url}/common/plugins/lightgallery/js/lightgallery.min.js"></script>
+<script src="{$base_url}/common/plugins/lightgallery/js/lg-pager.min.js"></script>
+
+<script src="{$base_url}/common/plugins/lightgallery/js/lg-fullscreen.min.js"></script>
+<script src="{$base_url}/common/plugins/lightgallery/js/lg-zoom.min.js"></script>
+<script src="{$base_url}/common/plugins/lightgallery/js/lg-hash.min.js"></script>
+<script>
+	lightGallery(document.getElementById('lightgallery'));
+</script>
+
+
+
+{template_shopping 'footer.html'}

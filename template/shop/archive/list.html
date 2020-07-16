@@ -1,0 +1,44 @@
+{template_shopping 'header.html'}
+
+{template_shopping 'top-product.html'}
+
+
+<div class="container">
+	{template_shopping 'screening/screening.html'}
+	<div class="clearfix"></div>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<div class="content-products">
+			<ul>
+				{loop $archives $i $archive}
+				<li class="col-md-4 col-lg-3 col-xs-6 col-ms-3">
+					<div class="content-products-img">
+						<a title="{$archive['stitle']}" href="{$archive['url']}" target="_blank"><img alt="{$archive['stitle']}" src="{$archive['thumb']}" class="swiper-lazy" /></a>
+
+					</div>
+					<div class="content-products-text">
+						<h4>
+							<a title="{$archive['stitle']}" href="{$archive['url']}" target="_blank">{$archive['title']}</a>
+						</h4>
+						<p>
+							{$archive['subtitle']}
+						</p><span class="pull-left">{lang('unit')} {$archive['oldprice']}</span> <span class="pull-right"><a onclick="buyshop('{url('archive/doorders/aid/',true)}','{url('archive/getarchiveType',false)}','{$archive['aid']}')"><i class="btnCart icon-basket"></i></a>{getcollect($archive['aid'])}</span>
+					</div>
+				</li> {/loop}
+			</ul>
+		</div>
+
+		<div class="column-pagination">
+			{if isset($pages)}
+			{category_pagination($catid)}
+			{/if}
+		</div>
+	</div>
+</div>
+
+
+
+{template_shopping 'footer.html'}

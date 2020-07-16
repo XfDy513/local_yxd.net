@@ -1,0 +1,42 @@
+{template 'header.html'}<div class="container-fluid clearfix view-html">
+	{template 'system/random_jpg.html'}
+	<div class="container clearfix">
+		<div class="row column">
+			{loop type($typeid) $t}
+			<div class="list-title list-title2">
+				<p class="typr-htmldir">
+					{$t['htmldir']}
+				</p>
+				<h4 class="type-title">
+					<a title="{$t['typename']}" href="{category::url($t['catid'])}">{$t['typename']}</a>
+				</h4>
+			</div>
+			<div class="row">
+				<div class="type-list-text">
+					{loop archive(0,$t['typeid'],0,'0,0,0',20,'aid',5,false,0) $archive}
+					<div class="type-list-text-item">
+						<div class="type-list-text-date">
+							 <span>{=sdate($archive['adddate'],'d')}</span>
+							<p>
+								{=sdate($archive['adddate'],'Y-m')}
+							</p>
+						</div>
+						<div class="type-list-text-text">
+							<h4>
+								<a title="{$archive['stitle']}" href="{$archive['url']}" target="_blank">{$archive['title']}</a>
+							</h4>
+							<p>
+								{cut(strip_tags($archive['introduce']),140)}
+							</p>
+						</div>
+					</div> {/loop}
+				</div>
+			</div>
+			<div class="blank30">
+			</div> {/loop}
+			<div class="type-pagination">
+				{if isset($pages)} {type_pagination($typeid)} {/if}
+			</div>
+		</div>
+	</div>
+</div>{template 'footer.html'}

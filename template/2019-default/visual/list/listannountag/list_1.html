@@ -1,0 +1,28 @@
+<div class="column">
+    <div class="codearea">
+        <div class="announ-list">
+            <ul>
+                #[#loop announ(<var id="num">5</var>,<var id="title_len">20</var>,<var id="is_date">1</var>) $an#]#
+                <li>
+                    #[#if $an['is_date']#]#<p class="badge announ-date">#[#$an['adddate']#]#</p>#[#/if#]#
+                    <p><a title="#[#$an['title']#]#" href="#[#$an['url']#]#" target="_blank">#[#$an['title']#]#</a></p>
+                </li>
+                #[#/loop#]#
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="viewarea">
+        <div class="announ-list">
+            <ul>
+                {loop announ(5,20,1) $an}
+                <li>
+                    <p class="badge announ-date">{$an['adddate']}</p>
+                    <p><a title="{$an['title']}" href="{$an['url']}" target="_blank">{$an['title']}</a></p>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

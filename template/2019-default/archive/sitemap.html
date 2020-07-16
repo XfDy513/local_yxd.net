@@ -1,0 +1,120 @@
+{template 'header.html'}<div class="view-html">
+	{template 'system/random_jpg.html'}
+	<div class="list-title list-title2">
+		<div class="container">
+			<div class="col-xs-12 col-md-8">
+				<h4 class="content-title">
+					{$archive['title']}
+				</h4>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid clearfix layout_640826">
+		<div class="row column">
+			<div class="container clearfix layout_318045">
+				<div class="row column">
+					<div class="col-md-8 layout_702834">
+						<div class="row column">
+							<div class="content-adddate">
+								 <span>{lang('adddate')}：</span>{$archive['adddate']}
+							</div>
+							<div class="visual-print">
+								<p class="visual-print-tools">
+									 <a href="javascript:CallPrint('print');"><em class="glyphicon glyphicon-print"></em></a> <a href="javascript:doZoom(14)">{lang('small')}</a> <a href="javascript:doZoom(18)">{lang('middle')}</a> <a href="javascript:doZoom(20)">{lang('big')}</a>
+								</p>
+							</div>
+							<div id="print" class="content-text">
+								{$archive['content']}
+							</div>
+							<div class="visual-audio">
+								<div class="blank5 visual-blank">
+								</div>
+							</div>
+							<div class="content-author">
+								 <span>{lang('author')}：</span>{$archive['author']}
+							</div>
+							<div class="content-source" style="margin-left: 15px; margin-right: 15px;">
+								 <span>{lang('source')}：</span>{$archive['attr3']}
+							</div>
+							<div class="content-statistics">
+								 <span>{lang('view')}：</span>{view_js($archive['aid'])}
+							</div>
+							<div class="visual-audio">
+								<div class="blank5 visual-blank">
+								</div>
+							</div>
+							<div class="col-md-12 layout_462122 text-center" style="margin-top: 15px; margin-bottom: 15px;">
+								<div class="row column">
+									<div class="content-collection">
+										{getcollect($archive['aid'])}
+									</div>
+									<div class="content-fabulous">
+										{getraise($archive['praise'],$archive['aid'])}
+									</div>
+								</div>
+							</div>
+							<div class="clearfix layout_262234 text-center" style="margin-top: 15px; margin-bottom: 15px;">
+							</div>
+							<div class="content-archivep-archiven">
+								{if $archive['p']['aid']} <span class="content-archivep"><a href="{$archive['p']['url']}"><strong>{lang('archivep')}</strong>{$archive['p']['title']}</a></span> {else} <span class="content-archivep"><a><strong>{lang('archivep')}</strong>{lang_admin('nopage')}</a></span> {/if} {if $archive['n']['aid']} <span class="content-archiven"><a href="{$archive['n']['url']}"><strong>{lang_admin('archiven')}</strong>{$archive['n']['title']}</a></span> {else} <span class="content-archiven"><a><strong>{lang('archiven')}</strong>{lang('nopage')}</a></span> {/if}
+								<div class="clearfix"></div>
+							</div>
+							<div class="visual-audio">
+								<div class="blank5 visual-blank">
+								</div>
+							</div>
+							<div class="content-comment">
+								{template 'comment/comment.html'}
+							</div>
+							<div class="content-relevant-list1">
+								<dl>
+									<dt>
+										<a><em class="icon-feed"></em>{lang('relatedcontent')}</a>
+									</dt> {loop archive($catid,'0','0','0,0,0','20','rand()','10','false','0','true','0','0','0','0') $i $archive}
+									<dd class="col-xs-12 col-md-6">
+										 <a href="{$archive['url']}" title="{$archive['stitle']}">{$archive['title']}</a>
+									</dd> {/loop}
+								</dl>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 layout_606904">
+						<div class="row column">
+							<div class="hot-news">
+								<div class="title20">
+									<p>
+										Host List
+									</p>
+									<h4>
+										{lang('hostlist')}
+									</h4>
+								</div>
+								<ul>
+									{loop archive($catid,0,0,'0,0,0',20,'view',9,false,0) $i $arc}
+									<li>
+										<span>{=$i}</span><a href="{$arc['url']}" title="{$arc['stitle']}">{$arc['title']}</a>
+									</li> {/loop}
+								</ul>
+							</div>
+							<div class="new-teg">
+								<div class="title20">
+									<p>
+										hot news
+									</p>
+									<h4>
+										TAG
+									</h4>
+								</div>
+								<div class="new-teg-list">
+									{loop tags($catid,10) $tag} <a href="{$tag['url']}" style="color:{$tag['tag_txtcolor']};size:{$tag['tag_txtsize']}">{$tag['tag']}</a> {/loop}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix layout_412451">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>{template 'footer.html'}

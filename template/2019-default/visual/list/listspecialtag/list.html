@@ -1,0 +1,20 @@
+<div class="codearea">
+	<div class="special-list">
+		<ul>
+			#[#loop $archives $sp#]#
+			<li><span>#[#$sp['adddate']#]#</span><a title="#[#$sp['stitle']#]#" href="#[#$sp['url']#]#" target="_blank">#[#$sp['title']#]#</a></li>
+			#[#/loop#]#
+		</ul>
+	</div>
+</div>
+<div class="viewarea">
+	<div class="special-list">
+		<ul>
+			<li><span>2019-01-01</span><a> {lang_admin('content_title')}</a></li>
+			<li><span>2019-01-01</span><a> <?php echo lang_admin('content_title');?></a></li>
+			<li><span>2019-01-01</span><a> <?php echo lang_admin('content_title');?></a></li>
+			<li><span>2019-01-01</span><a> <?php echo lang_admin('content_title');?></a></li>
+			<li><span>2019-01-01</span><a> <?php echo lang_admin('content_title');?></a></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta name="renderer" content="webkit">
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>{getTitle($archive,$category,$catid,$type)} - {get(sitename)}</title>
+<meta name="keywords" content="{getKeywords($archive,$category,$catid,$type)}" />
+<meta name="description" content="{getDescription($archive,$category,$catid,$type)}" />
+<meta name="author" content="CmsEasy Team" />
+<link rel="icon" href="{get('site_ico')}" type="image/x-icon" />
+<link rel="shortcut icon" href="{get('site_ico')}" type="image/x-icon" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"> <!--适应小屏幕-->
+<meta content="no" http-equiv="imagetoolbar">
+{if get('mobile_open')=='1'}<script type="text/javascript">var cmseasy_wap_tpa=1,cmseasy_wap_tpb=1,cmseasy_wap_url='{$base_url}/wap';</script>
+<script src="{$skin_path}/js/mobile.js" type="text/javascript"></script>{/if}
+
+<script type="text/javascript" src="{$skin_path}/js/jquery-1.8.3.min.js"></script>
+
+
+
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--mobile apps-->
+<!--Custom Theme files -->
+
+<link href="{$skin_path}/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+
+<!-- //Custom Theme files -->
+
+
+<link rel="stylesheet" href="{$skin_path}/css/style-reset.css" type="text/css" />
+<link rel="stylesheet" href="{$skin_path}/css/style_pc.css" />
+
+</head>
+{if get('shield_right_key')=='1'}
+<body oncontextmenu="return false" onselectstart="return false">
+<noscript><iframe src="/*.html>";</iframe></noscript>
+<script>
+function stop(){
+return false;
+}
+document.oncontextmenu=stop;
+</script>
+{else}
+<body>
+{/if}
+
+
+
+
+
+
+
+
+
+
+	<!-- main content start-->
+	<div id="page-wrapper">
+		<!--banner-->
+		<div class="banner" id="home">
+			<div class="banner-right">
+				<h1 class="wow zoomIn animated" data-wow-delay=".5s">Liqueur</h1>
+			</div>
+			<div class="banner-left">
+				<!--navigation-->
+				<nav> 
+					<a href="" id="menuToggle"> <span class="navClosed"></span> </a>
+
+					<a href="{$base_url}/" {if $topid==0}class="active"{/if}>{lang(homepage)}</a>
+					{loop categories_nav() $t}
+					<a href="{$t[url]}" target="{if config::get('nav_blank')==1} _blank{/if}" {if isset($topid) && $topid==$t[catid]}class="active"{/if}>{$t[catname]}</a>
+					{/loop}
+				</nav>
+				<script>
+					(function($){
+						// Menu Functions
+						$(document).ready(function(){
+						$('#menuToggle').click(function(e){
+							var $parent = $(this).parent('nav');
+						  $parent.toggleClass("open");
+						  var navState = $parent.hasClass('open') ? "hide" : "show";
+						  $(this).attr("title", navState + " navigation");
+								// Set the timeout to the animation length in the CSS.
+								setTimeout(function(){
+									console.log("timeout set");
+									$('#menuToggle > span').toggleClass("navClosed").toggleClass("navOpen");
+								}, 200);
+							e.preventDefault();
+						});
+					  });
+					})(jQuery);
+				</script>
+				<!--//navigation-->
+				<div class="banner-text">
+					{tag_首页第一行左侧栏目说明}
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		<!--//banner-->

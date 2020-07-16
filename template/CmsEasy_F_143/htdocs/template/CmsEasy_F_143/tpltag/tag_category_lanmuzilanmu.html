@@ -1,0 +1,23 @@
+
+<ul>
+	{loop categories($_catid) $i $t1} 
+	{if $i%3==0}
+		<li class="wow zoomIn animated" data-wow-delay=".5s">
+			<span class="glyphicon glyphicon-glass effect-1" aria-hidden="true"></span>
+			<p><a href="{$t1[url]}" title="{$t1[catname]}">{$t1[catname]}</a></p>
+		</li>
+	{/if}
+	{if $i%3==1}
+	<li class="wow zoomIn animated" data-wow-delay=".5s">
+		<span class="glyphicon glyphicon-heart effect-1" aria-hidden="true"></span>
+		<p><a href="{$t1[url]}" title="{$t1[catname]}">{$t1[catname]}</a></p>
+	</li>
+	{/if}
+	{if $i%3==2}
+	<li class="wow zoomIn animated" data-wow-delay=".5s">
+		<span class="glyphicon glyphicon-check effect-1" aria-hidden="true"></span>
+		<p><a href="{$t1[url]}" title="{$t1[catname]}">{$t1[catname]}</a></p>
+	</li>
+	{/if}
+	{/loop}  
+</ul>

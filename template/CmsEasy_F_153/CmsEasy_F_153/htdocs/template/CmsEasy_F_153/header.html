@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="{getKeywords($archive,$category,$catid,$type)}" />
+<meta name="description" content="{getDescription($archive,$category,$catid,$type)}" />
+<meta name="author" content="CmsEasy Team" />
+<link rel="icon" href="{get('site_ico')}" type="image/x-icon" />
+<link rel="shortcut icon" href="{get('site_ico')}" type="image/x-icon" />
+<title>{getTitle($archive,$category,$catid,$type)} - {get(sitename)}</title>
+<link href="{$skin_path}/css/bootstrap.min.css" rel="stylesheet">
+<link href="data:text/css;charset=utf-8," data-href="{$skin_path}/css/bootstrap-theme.min.css" rel="stylesheet" id="bs-theme-stylesheet">
+<link href="{$skin_path}/css/style.css" rel="stylesheet">
+<script src="{$skin_path}/js/jquery.min.js"></script>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+
+<!--[if lt IE 9]><!-->
+<script src="{$skin_path}/js/ie/html5shiv.min.js"></script>
+<script src="{$skin_path}/js/ie/respond.min.js"></script>
+<![endif]-->
+</head>
+{if get('shield_right_key')=='1'}
+<body oncontextmenu="return false" onselectstart="return false">
+<noscript><iframe src="/*.html>";</iframe></noscript>
+<script>
+function stop(){
+return false;
+}
+document.oncontextmenu=stop;
+</script>
+{else}
+<body>
+{/if}
+
+
+
+
+
+
+<!--header start here-->
+<div class="banner-box">
+
+	{template 'system/slide.html'}
+
+
+	<div class="banner-box1">
+
+	<div class="container">
+		<div class="header">
+			<div class="col-md-7 logo">
+				<a href="{$base_url}/" ><img src="{get('site_logo')}" class="img-responsive" alt="{get(sitename)}" width="{get(logo_width)}" /></a>
+			</div>
+			<div class="col-md-5 details">
+				<div class="addre">
+					<span class="location"> </span>
+					  <div class="detail-para">
+						<p>{get(address)}</p>				
+					  </div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="addre ad-para">
+					<span class="tel-ph"> </span>
+					 <div class="detail-para">					
+						<p><a href="mailto:{get(email)}">{get(email)}</a></p>
+					  </div>
+					  <div class="clearfix"> </div>
+				</div>
+				<div class="addre addres-mes">
+					<span class="mess"> </span>
+					 <div class="detail-para">
+						<p>{get(tel)}</p>					
+					  </div>
+					<div class="clearfix"> </div>
+				</div>
+			  <div class="clearfix"> </div>
+			</div>
+		  <div class="clearfix"> </div>
+		</div>
+		<div class="top-nav">
+			<div class="navbar-header">
+	   			 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	                <span class="sr-only"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+                </button>
+              </div>
+	   			<div id="navbar" class="navbar-collapse collapse">
+	              <ul class="nav navbar-nav">
+					  <li class="oen home{if $topid==0} active{/if}"><a href="{$base_url}/">{lang(homepage)}</a></li>
+								{loop categories_nav() $t}
+								<li class="oen{if count(categories($t[catid]))} dropdown{/if}"><a href="{$t[url]}" target="{if config::get('nav_blank')==1} _blank{/if}">{$t[catname]}{if count(categories($t[catid]))}<span class="caret"></span>{/if}</a>
+								{if count(categories($t[catid]))}
+								<ul class="dropdown-menu">
+								{loop categories_nav($t[catid]) $t1}
+								<li{if count(categories($t1[catid]))} class="dropdown-submenu"{/if}><a href="{$t1[url]}">{$t1[catname]}</a></li>
+								{/loop}
+								</ul>
+								{/if}
+								 </li>
+								{/loop}
+	              </ul>
+	            </div>
+			</div>
+	</div>
+	</div>
+</div>
+<!--header strat here-->

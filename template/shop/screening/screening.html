@@ -1,0 +1,164 @@
+    <style type="text/css">
+        /* 商城页面栏目筛选 */
+        .cation-content {margin:30px 0px;padding:15px; border:1px solid #eee;}
+        .cation-list {clear:both; margin:0px; padding:12px 0px; border-bottom:1px dashed #ccc; }
+        .cation-list a {display:inline-block;  margin: 5px 20px 5px 0; padding:2px 5px;}
+        .cation-list a.on {background:#f5f5f5;}
+        .cation-list dt { float:left; width:10%;margin: 5px 0px 5px 0; padding:2px 5px;}
+
+        .cation-list dd { display: block;
+            -webkit-margin-start: 10%;}
+        .cation-btn {height: 40px;
+            line-height: 40px; margin:15px 0px 0px 0px; padding: 0px 50px;background-color: #FF680D; color:#fff;}
+        .cation-btn:hover {color:#fff; background:#f0ad4e;}
+        #minprice,#maxprice { min-width:120px;border:1px solid #ccc; border-radius: 3px; line-height:32px; padding:0px 10px; }
+		@media (max-width: 486px) {
+		.cation-list dt { float:left; width:100%;}
+		#minprice, #maxprice {display:inline-block;width:110px;min-width:110px;}
+		}
+</style>
+
+<div class="cation-content"  id="sxid">
+    <div class="cation-middle">
+        <dl class="cation-list">
+            <dt>{lang('category')}：</dt>
+            <dd id="cateGory">
+                <a href="#" rel="" name="mode" class="all">{lang('all_columns')}</a>
+            </dd>
+        </dl>
+        <dl class="cation-list">
+            <dt>{lang('type')}：</dt>
+            <dd id="type">
+                <a href="#" rel="" name="theme" class="all">{lang('all_type')}</a>
+            </dd>
+        </dl>
+        <dl class="cation-list">
+            <dt>{lang('special')}：</dt>
+            <dd id="special">
+                <a href="#" rel="" name="system" class="all">{lang('all_special')}</a>
+            </dd>
+        </dl>
+        <dl class="cation-list">
+            <dt>{lang('price')}：</dt>
+            <dd id="getprice">
+               <input  type="text" name="minprice" id="minprice" value="{if $minprice}{$minprice}{else}0{/if}" placeholder="{lang('unit')}" /> - <input  type="text" name="maxprice" placeholder="{lang('unit')}" id="maxprice" value="{$maxprice}"/>
+            </dd>
+        </dl>
+			<input type="button" onclick="getWhere()" value="{lang('sure')}" class="btn cation-btn">
+    </div>
+</div>
+
+    <script type="text/javascript">
+    var whereDate={"cateGory":"{$cateGorycolor}","type":"{$typecolor}","special":"{$specialcolor}"};
+
+    $(function(){
+        //判断商业版
+     /*   if("{$_SESSION['ver']}"!='corp'){
+            $("#sxid").remove();
+        }*/
+      $.get('{url("archive/getScreening/langurl/".lang::getistemplate())}', function(data){
+            var dataObj = JSON.parse(data);
+            var cateGoryData=dataObj['cateGoryData'];
+            var cateGory=document.getElementById('cateGory');
+            setHtml(cateGoryData,cateGory,'cateGory');
+            var typeData=dataObj['typeData'];
+            var type=document.getElementById('type');
+            setHtml(typeData,type,'type');
+            var specialData=dataObj['specialData'];
+            var special=document.getElementById('special');
+            setHtml(specialData,special,'special');
+            if(cateGoryData.length==0 && typeData.length==0 && specialData.length==0){
+                $("#sxid").remove();
+            }
+        });
+     function setHtml(data,elementStr,name) {
+         if(data.length>0){
+             var str='';
+             var strcolor=false;
+             for(var i=0;i<data.length;i++){
+                 var reg=/[`~！!@#$%^&*_+<>{}\/'[\]]/g;
+                 data[i].name=data[i].name.replace(reg,'-');
+                 if((name=='cateGory' && '{$cateGorycolor}'==data[i].id ) || (name=='type' && '{$typecolor}'==data[i].id)
+                     || (name=='special' && '{$specialcolor}'==data[i].id)){
+                     str =str+ '  <a href="javascript:void(0)" class="on" onclick="setWhere(\''+name+'\','+data[i].id+',this)" rel="'+data[i].name+'"  name="'+name+'" >'+data[i].name;+'</a>  '
+                     whereDate['name']=data[i].id;
+                     strcolor=true;
+                 }else{
+                     str =str+ '  <a href="javascript:void(0)" onclick="setWhere(\''+name+'\','+data[i].id+',this)" rel="'+data[i].name+'"  name="'+name+'">'+data[i].name;+'</a>  '
+                 }
+               /*  if(strid==''){
+                     strid=data[i].id;
+                 }else{
+                     strid=strid+','+data[i].id;
+                 }*/
+             }
+             var strhead='';
+             var classtype="";
+             if(!strcolor){
+                 classtype="class=\"on\"";
+                 whereDate['name']='';
+             }
+             if(name=='cateGory' ){
+                 strhead='<a href="javascript:void(0)" '+classtype+'  rel="" onclick="setWhere(\''+name+'\',\'\',this)" name="'+name+'" >{lang('all_columns')}</a>';
+             }else if (name=='type' ) {
+                 strhead='<a href="javascript:void(0)" '+classtype+' rel="" onclick="setWhere(\''+name+'\',\'\',this)" name="'+name+'" >{lang('all_type')}</a>';
+             }else if (name=='special' ) {
+                 strhead='<a href="javascript:void(0)" '+classtype+'  rel="" onclick="setWhere(\''+name+'\',\'\',this)" name="'+name+'" >{lang('all_special')}</a>';
+             }
+            /* if( (name=='cateGory'&&'{$cateGorycolor}'==strid) || (name=='type'&&'{$typecolor}'==strid)
+                 || (name=='special' && '{$specialcolor}'==strid)){
+                 strhead='<a href="javascript:void(0)" class="on"  rel="" onclick="setWhere(\''+name+'\',\''+strid+'\',this)" name="'+name+'" >{lang('all_columns')}</a>';
+             }else{
+                 if (whereDate['name']==''){
+                     strhead='<a href="javascript:void(0)" class="on"  rel="" onclick="setWhere(\''+name+'\',\''+strid+'\',this)" name="'+name+'" >{lang('all_type')}</a>';
+                     whereDate['name']=strid;
+                 } else{
+                     strhead='<a href="javascript:void(0)" rel="" onclick="setWhere(\''+name+'\',\''+strid+'\',this)" name="'+name+'"  >{lang('all_special')}</a>';
+                 }
+              }*/
+              str=strhead+str;
+             elementStr.innerHTML=str;
+         }else{
+             //.parent().remove();
+             $(elementStr).parent().remove();//也可以
+             whereDate['name']='';
+         }
+     }
+    });
+
+    function setWhere(name,key,setcolor){
+        whereDate['name']=key;
+        /*$("[name="+name+"]").css("color","black");*/
+        /*setcolor.style.color="blue";*/
+        $("[name="+name+"]").removeClass("on");
+        $(setcolor).addClass("on");
+
+    }
+
+    function getWhere(){
+       /* if(whereDate['cateGory']=='' && whereDate['type']==''&& whereDate['special']==''){
+            alert('{lang('please_select_the_selection_criteria')}');  //请选择筛选栏目
+            return;
+        }*/
+        /*var path= this.location.pathname+this.location.search; //获取当前路径
+        var str='&cateGory';
+        var newpath=path.split(str)[0];*/
+        var newpath="{url('archive/listscreening/langurl/'.lang::getistemplate())}";
+        for ( var key in whereDate) {
+            newpath =newpath+'&'+key+'='+whereDate[key];
+        }
+        if($('#minprice').val() != '' ){
+            newpath=newpath+'&minprice='+$('#minprice').val();
+        }
+        if($('#maxprice').val() != ''){
+            newpath=newpath+'&maxprice='+$('#maxprice').val();
+        }
+        window.location.href = newpath;
+    }
+</script>
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+
+	    <div class="history-bottom">
+
+
+{loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $i $archive}
+
+
+{if $i%3==0 && $i>1}
+
+
+	    	<div class="clearfix"> </div>
+	    </div>
+	    <div class="history-bottom">
+{/if}
+
+
+
+
+
+<div class="col-md-4 history-grids">
+	<h4><a href="{$archive['url']}" style="color:{$arc[color]};" target="_blank" >{$archive['title']}</a></h4>
+	<p>{$archive[intro]}</p>
+</div>
+
+{/loop}	
+
+			<div class="clearfix"> </div>
+	    </div>
+

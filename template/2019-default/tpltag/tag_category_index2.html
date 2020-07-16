@@ -1,0 +1,39 @@
+
+		
+ 
+		<div class="s2">
+			<div class="swiper-container swiper2">
+				<div class="swiper-wrapper">
+					{loop plugins::categoryinfo($_catid,$_titlenum,$_textnum) $cat}
+					{loop categories($cat['catid'],null,$_titlenum,$_textnum) $cat}
+					<div class="swiper-slide s2-item">
+						<div class="s2-img">
+							<a title="{$cat['catname']}" href="{$cat['url']}" target="_blank">
+								<img alt="{$cat['catname']}" src="{$cat['image']}"  />
+							</a>
+						</div>
+						<div class="s2-text">
+							<h4><a title="{$cat['catname']}" href="{$cat['url']}" target="_blank">{$cat['htmldir']}<b>{$cat['catname']}</b></a></h4>
+							<span>{$cat['subtitle']}</span>
+							<p>{$cat['categorycontent']}</p>
+							<a class="more" title="{$cat['catname']}" href="{$cat['url']}" target="_blank">{lang('more')}</a>
+						</div>
+					</div>
+					{/loop}
+					{/loop}
+				</div>
+				<div class="swiper-pagination swiper2-pagination"></div>
+			</div>
+		</div>
+		<script>
+			var mySwiper = new Swiper ('.swiper2', {
+				loop: true,
+				slidesPerView : 1,
+				slidesPerGroup : 1,
+				spaceBetween : 10,
+				grabCursor: true,
+				autoHeight: true,
+				navigation: {nextEl: '.swiper2-button-next',prevEl: '.swiper2-button-prev',},
+				pagination: {el: '.swiper2-pagination',clickable: true,},
+			});
+		</script>

@@ -1,0 +1,167 @@
+<div class="codearea">
+	<div class="type-list-pic">
+	    #[#loop $archives $archive#]#
+		#[#if $i%3==0 && $i>0#]#
+		<div class="clearfix"></div>
+		#[#/if#]#
+		<div class="col-sm-4">
+			<div class="type-list-pic-item">
+				<div class="type-list-pic-img">
+					<a href="#[#$archive['url']#]#" target="_blank"><img alt="#[#$archive['stitle']#]#" src="#[#$archive['thumb']#]#" /></a>
+				</div>
+				<div class="type-list-pic-text">
+					<h4>#[#$archive['title']#]#</h4>
+					<p>#[#cut(strip_tags($archive['introduce']),66)#]#</p>
+				</div>
+				<div class="type-list-pic-more">
+					<a href="#[#$archive['url']#]#" target="_blank">more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		#[#/loop#]#
+	</div>
+</div>
+<div class="viewarea">
+	<div class="type-list-pic">
+		<div class="col-sm-4">
+			<div class="type-list-pic-item">
+				<div class="type-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-1.jpg" /></a>
+				</div>
+				<div class="type-list-pic-text">
+					<h4><?php echo lang_admin('content_title');?></h4>
+					<p><?php echo lang_admin('visual_display_content');?>…</p>
+				</div>
+				<div class="type-list-pic-more">
+					<a class="more">more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="type-list-pic-item">
+				<div class="type-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-2.jpg" /></a>
+				</div>
+				<div class="type-list-pic-text">
+					<h4><?php echo lang_admin('content_title');?></h4>
+					<p><?php echo lang_admin('visual_display_content');?>…</p>
+				</div>
+				<div class="type-list-pic-more">
+					<a class="more">more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="type-list-pic-item">
+				<div class="type-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-3.jpg" /></a>
+				</div>
+				<div class="type-list-pic-text">
+					<h4><?php echo lang_admin('content_title');?></h4>
+					<p><?php echo lang_admin('visual_display_content');?>…</p>
+				</div>
+				<div class="type-list-pic-more">
+					<a class="more">more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="type-list-pic-item">
+				<div class="type-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-4.jpg" /></a>
+				</div>
+				<div class="type-list-pic-text">
+					<h4><?php echo lang_admin('content_title');?></h4>
+					<p><?php echo lang_admin('visual_display_content');?>…</p>
+				</div>
+				<div class="type-list-pic-more">
+					<a class="more">more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="type-list-pic-item">
+				<div class="type-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-5.jpg" /></a>
+				</div>
+				<div class="type-list-pic-text">
+					<h4><?php echo lang_admin('content_title');?></h4>
+					<p><?php echo lang_admin('visual_display_content');?>…</p>
+				</div>
+				<div class="type-list-pic-more">
+					<a class="more">more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="type-list-pic-item">
+				<div class="type-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-6.jpg" /></a>
+				</div>
+				<div class="type-list-pic-text">
+					<h4><?php echo lang_admin('content_title');?></h4>
+					<p><?php echo lang_admin('visual_display_content');?>…</p>
+				</div>
+				<div class="type-list-pic-more">
+					<a class="more">more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="type-list-pic-item">
+				<div class="type-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-7.jpg" /></a>
+				</div>
+				<div class="type-list-pic-text">
+					<h4><?php echo lang_admin('content_title');?></h4>
+					<p><?php echo lang_admin('visual_display_content');?>…</p>
+				</div>
+				<div class="type-list-pic-more">
+					<a class="more">more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="type-list-pic-item">
+				<div class="type-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-8.jpg" /></a>
+				</div>
+				<div class="type-list-pic-text">
+					<h4><?php echo lang_admin('content_title');?></h4>
+					<p><?php echo lang_admin('visual_display_content');?>…</p>
+				</div>
+				<div class="type-list-pic-more">
+					<a class="more">more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="type-list-pic-item">
+				<div class="type-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-9.jpg" /></a>
+				</div>
+				<div class="type-list-pic-text">
+					<h4><?php echo lang_admin('content_title');?></h4>
+					<p><?php echo lang_admin('visual_display_content');?>…</p>
+				</div>
+				<div class="type-list-pic-more">
+					<a class="more">more  &gt;</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4">
+			<div class="type-list-pic-item">
+				<div class="type-list-pic-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-10.jpg" /></a>
+				</div>
+				<div class="type-list-pic-text">
+					<h4><?php echo lang_admin('content_title');?></h4>
+					<p><?php echo lang_admin('visual_display_content');?>…</p>
+				</div>
+				<div class="type-list-pic-more">
+					<a class="more">more  &gt;</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

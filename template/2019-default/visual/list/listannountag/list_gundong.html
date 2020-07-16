@@ -1,0 +1,43 @@
+<div class="column">
+    <div class="codearea">
+        <div class="swiper-container swiper-auunou">
+            <div class="swiper-wrapper">
+                #[#loop announ(<var id="num">5</var>,<var id="title_len">20</var>,<var id="is_date">1</var>) $an#]#
+                <div class="swiper-slide"><a title="#[#$an['title']#]#" href="#[#$an['url']#]#" target="_blank">#[#$an['title']#]#<span class="date">#[#$an['adddate']#]#</span></a></div>
+                #[#/loop#]#
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-button-next swiper-button-next-auunou"><span class="glyphicon glyphicon-menu-right"></span></div>
+            <div class="swiper-button-prev swiper-button-prev-auunou"><span class="glyphicon glyphicon-menu-left"></span></div>
+        </div>
+    </div>
+    <div class="viewarea">
+        <div class="swiper-container swiper-auunou">
+            <div class="swiper-wrapper">
+                {loop announ(5,20,1) $i $an}
+                <div class="swiper-slide"><a title="{$an['title']}" href="{$an['url']}" target="_blank">{$an['title']}<span class="date">{$an['adddate']}</span></a></div>
+                {/loop}
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-button-next swiper-button-next-auunou"><span class="glyphicon glyphicon-menu-right"></span></div>
+            <div class="swiper-button-prev swiper-button-prev-auunou"><span class="glyphicon glyphicon-menu-left"></span></div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<script>
+    var swiper = new Swiper('.swiper-auunou', {
+        direction: 'vertical',
+        slidesPerView: 1,
+        spaceBetween: 30,
+        mousewheel: true,
+        navigation: {
+            nextEl: '.swiper-button-next-auunou',
+            prevEl: '.swiper-button-prev-auunou',
+        },
+        autoplay: {
+            delay: 10000,
+            disableOnInteraction: false,
+        },
+    });
+</script>

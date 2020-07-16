@@ -1,0 +1,46 @@
+{template 'header.html'}<div class="container-fluid clearfix view-html">
+	{template 'system/random_jpg.html'}
+	<div class="container clearfix">
+		<div class="row column">
+			{loop categories($catid) $i $t}
+			<div class="list-title list-title2">
+				<p class="column-htmldir">
+					{$t['htmldir']}
+				</p>
+				<h4 class="column-title">
+					<a title="{$t['typename']}" href="{category::url($t['catid'])}">{$t['catname']}</a>
+				</h4>
+			</div>
+			<div class="row">
+				<div class="column-list-pic">
+					{loop archive($t['catid'],0,0,'0,0,0',20,'aid',6,false,0) $i $archive} {if $i%4==0 && $i>0}
+					<div class="clearfix">
+					</div> {/if}
+					<div class="col-sm-3">
+						<div class="column-list-pic-item">
+							<div class="column-list-pic-img">
+								 <a href="{$archive['url']}" target="_blank"><img alt="{$archive['stitle']}" src="{$archive['thumb']}" /></a>
+							</div>
+							<div class="column-list-pic-text">
+								<h4>
+									{$archive['title']}
+								</h4>
+								<p>
+									{cut(strip_tags($archive['introduce']),66)}
+								</p>
+							</div>
+							<div class="column-list-pic-more">
+								 <a href="{$archive['url']}" target="_blank">more ></a>
+							</div>
+						</div>
+					</div> {/loop}
+				</div>
+			</div>
+			<div class="blank30">
+			</div> {/loop}
+			<div class="column-pagination">
+				{if isset($pages)} {category_pagination($catid)} {/if}
+			</div>
+		</div>
+	</div>
+</div>{template 'footer.html'}

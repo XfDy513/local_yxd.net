@@ -1,0 +1,258 @@
+
+
+{template 'bottom.html'}
+
+
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="copyright">
+                <p>
+                    {get('site_right')}<a href="{get('site_url')}" target="_blank">{get('sitename')}</a>.
+                </p>
+                <p>
+                    {if config::get('site_icp')}<a rel="nofollow" href="http://www.beian.miit.gov.cn" rel="nofollow" target="_blank">{get('site_icp')}</a>{/if}
+                    {if config::get('site_beian_number')}&nbsp;&nbsp;<a rel="nofollow" href="http://www.beian.miit.gov.cn" rel="nofollow" target="_blank"><img src="{$base_url}/images/g.png" width="20">{get('site_beian')}{lang('site_beian')}{get('site_beian_number')}{lang('number')}</a>{/if}&nbsp;&nbsp;{getCopyRight()}
+                    {if get('guestbook_enable')}&nbsp;&nbsp;<a rel="nofollow" title="{lang('feedback')}" href="{url('guestbook')}" target="_blank">{lang('feedback')}</a>{/if}&nbsp;&nbsp;<a href="{$base_url}/index.php?case=archive&act=rss&catid={$catid}">Rss</a>{if config::get('opguestadd')=='1'}&nbsp;&nbsp;<a rel="nofollow" href="{$base_url}/?g=1">{lang('opguestadd')}</a>{/if}&nbsp;&nbsp;<a href="{$site_map}" target="_blank">{lang('sitemap')}</a>{if get('saic_pic')} <a href='http://www.sgs.gov.cn/lz/licenselink.do>?nethod=licenceView&entyID={get('saic_pic')}'><img src='{$base_url}/images/gongshang.png' width='20'></a>{/if}
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{if config::get('lang_open')=='1'}
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" id="myModalLang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h5 class="modal-title" id="myModalLabel">{lang('please_choose_the_browsing_language')}</h5>
+            </div>
+            <div class="modal-body">
+                {if get('lang_type')=='1'}<a id="StranLink" name="StranLink">繁體</a>{/if}
+                {loop getlang() $d}
+                <a {if config::get('list_index_php')==1}name="setlang" data-langurl="{$d['langurlname']}" {else}href="{if $d['domain']}{$d['domain']}{url('archive/setlang/langurl/'.$d['langurlname'])}{else}{url('archive/setlang/langurl/'.$d['langurlname'])}{/if}" {/if} ><img src="{$d['langimg']}" width="20"> {$d['langname']}</a>
+                {/loop}
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    <!--
+    //静态切换语言
+    (function(){
+    $('[name=setlang]').click(function () {
+        var langurl=$(this).data("langurl");
+        $.ajax({
+            type: "get",
+            url: '{url("archive/setlang/static/1/langurl/")}'+langurl,
+            async: false,
+            success: function (data) {
+                data=JSON.parse(data);
+                if (data.state) {
+                    window.location.href = "{$base_url}/" + "index-" + langurl + ".html";
+                }
+            }
+        });
+    });
+
+    })();
+    //-->
+</script>
+<!-- 繁简切换 -->
+{if get('lang_type')=='cn'}<script type="text/javascript" src="{$base_url}/common/js/common.js"></script>{/if}
+{/if}
+
+
+
+
+{if config::get('site_push')=='1'}
+<script type="text/javascript">
+    <!--
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+    //-->
+</script>
+{/if}
+
+
+<div class="servers">
+    <!--[if (gte IE 7)|!(IE)]><!-->
+    <!-- 在线客服 -->
+    {template 'system/servers.html'}
+    <![endif]-->
+    <!-- 短信 -->
+    {template 'system/sms.html'}
+</div>
+
+<div class="servers-wap">
+    {if get('wap_style_color')=='1'}
+    <link href="{$skin_path}/css/wap/wap1.css" rel="stylesheet" />
+    {elseif config::get('wap_style_color')=='2'}
+    <link href="{$skin_path}/css/wap/wap2.css" rel="stylesheet" />
+    {elseif config::get('wap_style_color')=='3'}
+    <link href="{$skin_path}/css/wap/wap3.css" rel="stylesheet" />
+    {elseif config::get('wap_style_color')=='4'}
+    <link href="{$skin_path}/css/wap/wap4.css" rel="stylesheet" />
+    {elseif config::get('wap_style_color')=='5'}
+    <link href="{$skin_path}/css/wap/wap5.css" rel="stylesheet" />
+    {elseif config::get('wap_style_color')=='6'}
+    <link href="{$skin_path}/css/wap/wap6.css" rel="stylesheet" />
+    {elseif config::get('wap_style_color')=='7'}
+    <link href="{$skin_path}/css/wap/wap7.css" rel="stylesheet" />
+    {elseif config::get('wap_style_color')=='8'}
+    <link href="{$skin_path}/css/wap/wap8.css" rel="stylesheet" />
+    {elseif config::get('wap_style_color')=='9'}
+    <link href="{$skin_path}/css/wap/wap9.css" rel="stylesheet" />
+    {else}
+    {/if}
+    {if config::get('wap_foot_nav')=='1'}
+    {template 'system/foot_nav_a.html'}
+    {elseif config::get('wap_foot_nav')=='2'}
+    {template 'system/foot_nav_b.html'}
+    {elseif config::get('wap_foot_nav')=='3'}
+    {template 'system/foot_nav_c.html'}
+    {else}
+    {/if}
+</div>
+
+<!--图片延迟-->
+<script src="{$base_url}/common/plugins/lazyload/jquery.lazyload.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $("img.lazy,div.lazy").lazyload({
+            placeholder:"{get('onerror_pic')}",
+            effect:"fadeIn",//show直接显示,fadeIn显现
+            threshold:180,
+            event:"scroll",
+            failure_limit:2
+        });
+    })
+</script>
+
+
+<!-- 导航下拉缩小高度 -->
+<script type="text/javascript">
+    <!--
+    $(document).ready(function(){
+        $(window).scroll(function() {
+            var top = $(".visual-slide,.banner,.banner2,.banner3,.banner4,.cbanner").offset().top; //获取指定位置
+            var scrollTop = $(window).scrollTop();  //获取当前滑动位置
+            if(scrollTop > top){                 //滑动到该位置时执行代码
+                $(".navbar").addClass("active");
+            }else{
+                $(".navbar").removeClass("active");
+            }
+        });
+    });
+
+    $(function(){
+        var cubuk_seviye = $(document).scrollTop();
+        var header_yuksekligi = $('.navbar').outerHeight();
+
+        $(window).scroll(function() {
+            var kaydirma_cubugu = $(document).scrollTop();
+
+            if (kaydirma_cubugu > header_yuksekligi){$('.navbar').addClass('gizle');}
+            else {$('.navbar').removeClass('gizle');}
+
+            if (kaydirma_cubugu > cubuk_seviye){$('.navbar').removeClass('sabit');}
+            else {$('.navbar').addClass('sabit');}
+
+            cubuk_seviye = $(document).scrollTop();
+        });
+    });
+    //-->
+</script>
+
+
+{if config::get('html_wow')=='1'}
+<!-- wow动态效果 -->
+<link rel="stylesheet" href="{$base_url}/common/plugins/animate/css/animate.min.css" />
+<script src="{$base_url}/common/plugins/animate/js/wow.min.js"></script>
+<script type="text/javascript">
+    <!--
+    if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+        new WOW().init();
+    };
+    //-->
+</script>
+{/if}
+
+{if get('share')=='1'}
+<!-- 百度分享 -->
+<script type="text/javascript">
+    <!--
+    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"100"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    //-->
+</script>
+{/if}
+
+
+
+<script src="{$base_url}/common/js/admin.js"></script>
+
+<!-- 鼠标滑过展开一级菜单/一级菜单可点击 -->
+<script type="text/javascript">
+    <!--
+    $(function () {
+        $(".dropdown,.dropdown-submenu").mouseover(function () {
+            $(this).addClass("open");
+        });
+        $(".dropdown,.dropdown-submenu").mouseleave(function(){
+            $(this).removeClass("open");
+        })
+    });
+    $(document).ready(function(){
+        var _width = $(window).width();
+        if(_width < 768){
+            $("#navbar a.toogle").click(function(){
+                event.preventDefault();
+            });
+        }
+    });
+    //-->
+</script>
+
+
+
+{if config::get('qrcodes')=='1'}
+<script type="text/javascript" src="{$base_url}/common/plugins/qrcode/jquery.qrcode.min.js"></script>
+<script type="text/javascript">
+    <!--
+    $(function() {
+        $('#qrcode').qrcode({text: window.location.href});
+    });
+    //-->
+</script>
+{/if}
+<!--
+{if config::get('site_login')=='1'}
+<span id="head_login">{login_js()}</span>
+<script type="text/javascript">
+    login.innerHTML=head_login.innerHTML;head_login.innerHTML="";
+</script>
+{/if}
+-->
+{template 'common/plugins/public/foot-js.html'}
+{template 'foot_js.html'}
+
+
+
+</body>
+</html>

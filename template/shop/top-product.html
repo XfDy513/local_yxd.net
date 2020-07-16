@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="{$skin_shop_path}/css/shop.css" />
+<div class="loop-products-banner">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-4 col-sm-5">
+				<div class="loop-products-banner-nav">
+					<label class="loop-products-banner-btn">
+						<p>{lang('all_classifications')}</p>
+						<button type="button">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</label>
+					<div class="loop-products-shop-nav" style="display:none;">
+						<div class="container">
+							<div class="loop-products-nav_left">
+								<ul>
+									{loop typies() $i $t}
+										<li data-id="{=$i+1}"> <span><a href="{$t['url']}">{$t['typename']}</a></span></li>
+									{/loop}
+								</ul>
+							</div>
+							<div class="loop-products-nav_right">
+								{loop typies() $k $t}
+								<div class="loop-products-nav_right_sub hide" data-id="{=$k+1}">
+									{loop $t['children'] $t1}
+									<dl>
+										<dt><a href="{$t1['url']}">{$t1['typename']} <i> &gt;</i></a> </dt>
+										<dd>
+											{loop $t1['children'] $t2}
+											<a href="{$t2['url']}">{$t2['typename']}</a>
+											{/loop}
+										</dd>
+									</dl>
+									{/loop}
+								</div>
+								{/loop}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-8 col-sm-7">
+				<form name='search' action="<?php echo url('archive/search');?>" onsubmit="search_check();" method="post">
+					<div class="input-group">
+						<input type="text" name="keyword" class="form-control loop-products-banner-input" placeholder="{lang('pleaceinputtext')}">
+						<span class="input-group-btn">
+							<button class="btn loop-products-banner-btn2" name='submit' type="submit">
+								<span class="glyphicon glyphicon-search"></span>
+							</button>
+				  		</span>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".loop-products-banner-nav").mouseover(function(){
+			$(".loop-products-banner-nav .loop-products-shop-nav").show();
+		});
+		$(".loop-products-banner-nav").mouseleave(function(){
+			$(".loop-products-banner-nav .loop-products-shop-nav").hide();
+		});
+		$(function() {
+			$('.loop-products-banner-nav .loop-products-shop-nav').on('mouseenter', function() {
+				$(".loop-products-nav_right").removeClass('hide');
+			}).on('mouseleave', function() {
+				$(".loop-products-nav_right").addClass('hide');
+				$(".loop-products-nav_right_sub").addClass('hide');
+			}).on('mouseenter', 'li', function(e) {
+				var li_data = $(this).attr('data-id');
+				$(".loop-products-nav_right_sub").addClass('hide');
+				$('.loop-products-nav_right_sub[data-id="' + li_data + '"]').removeClass('hide');
+			})
+		})
+	});
+</script>
+<div class="clearfix"></div>
+

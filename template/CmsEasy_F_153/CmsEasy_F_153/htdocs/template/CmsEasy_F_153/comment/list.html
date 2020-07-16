@@ -1,0 +1,167 @@
+{template 'header.html'}
+{template 'system/cslide.html'}
+<!-- 面包屑导航开始 -->
+{template 'position.html'}
+<!-- 面包屑导航结束 -->
+
+
+<!-- 中部开始 -->
+
+<link href="{$skin_path}/css/comment.css" rel="stylesheet">
+<div class="clearfix"></div>
+
+
+
+
+
+<!-- 评论框开始 -->
+
+<!-- 页面标题开始 -->
+<div class="title">
+<h3><a>{lang(commentlist)}<small>List</small></a></h3>
+<p></p>
+<span>——</span>
+</div>
+
+<!-- 页面标题结束 -->
+<hr class="featurette-divider">
+<div class="container">
+
+<div class="blank30"></div>
+
+<form action="<?php echo url('comment/add'); ?>" method="POST" name="comment_form" id="comment">
+<div class="comm">
+
+
+<div class="blank10"></div>
+		<input type="hidden" name="aid" value="{$aid}"/>
+
+		<div class="form-group">
+<label for="{lang(ordertel)}">{lang('username')}</label>
+<input type="text" class="form-control comm_name" name="username" value="<?php echo get('username');?>" placeholder="" />
+</div>
+
+
+		{if config::get('mobilechk_enable') && config::get('mobilechk_comment')}
+		<script src="{$base_url}/js/mobilechk.js"></script>
+		{lang(tel)} Tel
+		<div class="blank10"></div>
+		<input type="text" class="comm_name" name="telphone" id="telphone" />
+		<div class="blank10"></div>
+		{lang(phone_verification_code)}
+		<div class="blank10"></div>
+		<input id="btm_sendMobileCode" onclick="sendMobileCode('{url('tool/smscode')}',$('#telphone'));" type="button" value="{lang(send_cell_phone_verification_code)}" />
+		<input type='text' id="mobilenum"  tabindex="4" placeholder="	{lang(please_enter_the_phone_verification_code)}	"  name="mobilenum" />
+		<div class="blank10"></div>
+		{/if}
+
+<div class="form-group">
+<label for="{lang(ordertel)}">{lang(comment)}</label>
+<textarea name="content" id="textarea" class="form-control" rows="3" ></textarea>
+</div>
+
+
+{if config::get('verifycode')=='1'}
+		<div class="balnk10"></div>
+		{lang('verifycode')}
+		<div class="blank20"></div>
+		<input type='text' id="verify"  tabindex="3"  name="verify" />{verify()}
+		<div class="balnk10"></div>
+		{/if}
+
+		{if config::get('verifycode')=='2'}
+		<div class="blank20"></div>
+		<div id="verifycode_embed"></div>
+		<script src="http://api.geetest.com/get.php"></script>
+		<script>
+		var loadGeetest = function(config) {
+			window.gt_captcha_obj = new window.Geetest({
+				gt : config.gt,
+				challenge : config.challenge,
+				product : 'float',
+				offline : !config.success
+			});
+			gt_captcha_obj.appendTo("#verifycode_embed");
+		};
+
+		$.ajax({
+			url : '{url('tool/geetest',0)}',
+			type : "get",
+			dataType : 'JSON',
+			success : function(result) {
+				//console.log(result);
+				loadGeetest(result)
+			}
+		});
+		</script>
+		{/if}
+
+		<div class="blank30"></div>
+		<input name="submit" class="btn" value=" {lang('submit_on')} " type="submit" />
+		<div class="blank30"></div>
+
+		<div class="comment_info">
+		{if $topid==0}{else}<a rel="nofollow" href="<?php echo url('comment/list/aid/'.$archive['aid']); ?>">{/if}{lang('have')}<span class="commentnumber">({comment::countcomment($archive['aid'])})</span>{lang(bitofcommenters)}&nbsp;&nbsp;<strong>{lang('clicktoview')}</strong></a>
+		</div>
+
+	</div><!-- /comm -->
+	</form>
+
+<!-- 评论框结束 -->
+<div class="clear blank30"></div>
+
+<?php 
+if(config::get('comment_user')){ 
+?>
+</div>
+<!-- 评论列表开始 -->
+{comment_js($aid)}
+<!-- 评论列表结束 -->
+
+<?php
+}else{
+?>
+
+<?php
+if(front::$user['userid']){
+?>
+
+
+<!-- 评论列表开始 -->
+{comment_js($aid)}
+<!-- 评论列表结束 -->
+
+<?php
+}else{
+?>
+<div class="w_set">
+<input type="button" value=" {lang(please)}{lang(login)} " onclick="window.open('{url('user/login')}')" class="btn" />
+</div>
+<?php
+}
+?>
+
+<?php  } ?>
+
+
+
+</div>
+
+
+
+
+
+<div class="clearfix"></div>
+<div class="blank60"></div>
+<div class="blank60"></div>
+
+</div>
+</div>
+
+<!-- 页底推荐图文产品开始 -->
+{tag_内容页底图文产品三条}
+
+
+
+<!-- 限定图片宽度 -->
+{template 'footer.html'}

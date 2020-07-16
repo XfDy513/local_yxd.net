@@ -1,0 +1,85 @@
+
+
+<!--footer start here-->
+<div class="footer">
+	<div class="container">
+		<div class="footer-main">
+			
+		    <form name='search' action="<?php echo url('archive/search');?>" onsubmit="search_check();" method="post">
+		    	<input type="text" name="keyword" value="{lang(pleaceinputtext)}" onfocus="if(this.value=='{lang(pleaceinputtext)}') {this.value=''}" onblur="if(this.value=='') this.value='{lang(pleaceinputtext)}'" >
+		    	<input name='submit' type="submit" value="{lang(search)}" >
+		    </form>
+		</div>
+	</div>
+</div>
+<!--footer end here-->
+<!--copy right-->
+<div class="copy-rights">
+	<div class="container">
+		<div class="copy-rights-main">
+			<p><span>{get('sitename')}  {get(site_right)}</span><span>{if config::get('site_icp')}</a>&nbsp;&nbsp;<a rel="nofollow" href="http://www.miibeian.gov.cn/" rel="nofollow" target="_blank">{get('site_icp')}</a>{/if}{if config::get('site_beian_number')}&nbsp;&nbsp;<a rel="nofollow" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode={get('site_beian_number')}" rel="nofollow" target="_blank">{get('site_beian')}{lang(site_beian)}{get('site_beian_number')}{lang(number)}</a>{/if}</span><span>{getCopyRight()}{if get('guestbook_enable')}&nbsp;&nbsp;<a rel="nofollow" title="{lang(feedback)}" href="{url('guestbook')}" target="_blank">{lang('feedback')}</a>{/if}</span>{if config::get('site_login')=='1'}<span>{login_js()}</span>{/if}{if $topid==0}<span>{if config::get('hotsearch')=='1'}{lang('hotkeys')}： {gethotsearch(10)}{/if}</span>{/if}</p>
+		</div>
+	</div>
+</div>
+<!--/copy rights-->
+
+
+
+
+
+
+ <!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+
+<script src="{$skin_path}/js/bootstrap.min.js"></script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="{$skin_path}/js/holder.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="{$skin_path}/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+<div class="servers">
+<!--[if (gte IE 7)|!(IE)]><!-->
+<!-- 在线客服 -->
+{template 'system/servers.html'}
+<![endif]-->
+<!-- 短信 -->
+{template 'system/sms.html'}
+</div>
+
+<div class="servers-wap">
+{if config::get('wap_foot_nav')=='1'}
+{template 'system/foot_nav_a.html'}
+{elseif config::get('wap_foot_nav')=='2'}
+{template 'system/foot_nav_b.html'}
+{elseif config::get('wap_foot_nav')=='3'}
+{template 'system/foot_nav_c.html'}
+{else}
+{/if} 
+</div>
+
+<script type="text/javascript" src="{$base_url}/js/common.js"></script>
+
+
+{if get('share')=='1'}
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"6","bdPos":"right","bdTop":"100"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+{/if}
+
+
+{if config::get('site_push')=='1'}
+<script>
+(function(){
+var bp = document.createElement('script');
+bp.src = '//push.zhanzhang.baidu.com/push.js';
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(bp, s);
+})();
+</script>
+{/if}
+
+
+
+</body>
+</html>

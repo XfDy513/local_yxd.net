@@ -1,0 +1,65 @@
+<div class="codearea">
+	<div class="column-list-job">
+		<ul class="column-list-job-th">
+			<li>#[#lang('recruitmentpost')#]#</li>
+			<li class="text-center">#[#lang('recruitingdepartment')#]#</li>
+			<li class="text-center">#[#lang('releasetime')#]#</li>
+			<li class="text-center">#[#lang('intro')#]#</li>
+		</ul>
+		#[#loop $archives $archive#]#
+		<ul>
+			<li><a title="#[#$archive['stitle']#]#" target="_blank" href="#[#$archive['url']#]#">#[#$archive['title']#]#</a></li>
+			<li class="text-center">#[#if $archive['my_zhaopinbumen']#]##[#$archive['my_zhaopinbumen']#]##[#else#]##[#lang('not')#]##[#/if#]#</li>
+			<li class="text-center">#[#$archive['adddate']#]#</li>
+			<li class="text-center"><a title="#[#$archive['stitle']#]#" target="_blank" href="#[#$archive['url']#]#" class="column-list-job-th-more">#[#lang('details')#]#</a></li>
+		</ul>
+		#[#/loop#]#
+		<div class="clearfix"></div>
+	</div>
+</div>
+<div class="viewarea">
+	<div class="column-list-job">
+		<ul class="column-list-job-th">
+			<li><?php echo lang_admin('recruitmentpost');?></li>
+			<li class="text-center"><?php echo lang_admin('recruitingdepartment');?></li>
+			<li class="text-center"><?php echo lang_admin('releasetime');?></li>
+			<li class="text-center"><?php echo lang_admin('jobdetails');?></li>
+		</ul>
+		<ul>
+			<li><a><?php echo lang_admin('content_title');?></a></li>
+			<li class="text-center"><?php echo lang_admin('recruitingdepartment');?></li>
+			<li class="text-center">2015-08-04</li>
+			<li class="text-center"><a class="column-list-job-th-more"><?php echo lang_admin('details');?></a></li>
+		</ul>
+		<ul>
+			<li><a><?php echo lang_admin('content_title');?></a></li>
+			<li class="text-center"><?php echo lang_admin('recruitingdepartment');?></li>
+			<li class="text-center">2015-08-04</li>
+			<li class="text-center"><a class="column-list-job-th-more"><?php echo lang_admin('details');?></a></li>
+		</ul>
+		<ul>
+			<li><a><?php echo lang_admin('content_title');?></a></li>
+			<li class="text-center"><?php echo lang_admin('recruitingdepartment');?></li>
+			<li class="text-center">2015-08-04</li>
+			<li class="text-center"><a class="column-list-job-th-more"><?php echo lang_admin('details');?></a></li>
+		</ul>
+		<ul>
+			<li><a><?php echo lang_admin('content_title');?></a></li>
+			<li class="text-center"><?php echo lang_admin('recruitingdepartment');?></li>
+			<li class="text-center">2015-08-04</li>
+			<li class="text-center"><a class="column-list-job-th-more"><?php echo lang_admin('details');?></a></li>
+		</ul>
+		<ul>
+			<li><a><?php echo lang_admin('content_title');?></a></li>
+			<li class="text-center"><?php echo lang_admin('recruitingdepartment');?></li>
+			<li class="text-center">2015-08-04</li>
+			<li class="text-center"><a class="column-list-job-th-more"><?php echo lang_admin('details');?></a></li>
+		</ul>
+		<ul>
+			<li><a><?php echo lang_admin('content_title');?></a></li>
+			<li class="text-center"><?php echo lang_admin('recruitingdepartment');?></li>
+			<li class="text-center">2015-08-04</li>
+			<li class="text-center"><a class="column-list-job-th-more"><?php echo lang_admin('details');?></a></li>
+		</ul>
+	</div>
+</div>

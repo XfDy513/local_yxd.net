@@ -1,0 +1,80 @@
+{template 'header.html'}
+<style type="text/css">
+.list-title ul.column-subcolumn .column-subcolumn-list {margin:0px;padding:0px 0px 0px 10px;}
+.list-title ul.column-subcolumn li.column-subcolumn-title a, .list-title ul.special-subspecial li.special-subspecial-title a, .list-title ul.type-subtype li.type-subtype-title a {margin-bottom:10px;}
+	.list-title ul.column-subcolumn .column-subcolumn-list li a {margin:0px; padding:0px;border:none;}
+	.column-subcolumn-list-one {list-style-type:circle;margin-left:15px;}
+	.column-subcolumn-list-two {list-style-type:disc;}
+	.column-subcolumn-list-three {list-style-type:disc;}
+</style>
+<div class="cbanner" style="height:{get('cslide_height')}px;">
+                <div class="cbanner-bg">
+                    <div class="container">
+                        <div class="cbanner-title">
+                            <h4 class="column-title">{lang('sitemap')}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+			<div class="list-title list-title2">
+</div>
+
+<div class="container">
+<div class="list-title">
+
+<h4 class="column-title"><a href="{$base_url}/">{lang('homepage')}</a></h4>
+{loop categories_nav() $t}
+<div class="clearfix"></div>
+<h4 class="column-title">
+<a href="{$t['url']}">{$t['catname']}</a></h4>
+    {if count(categories($t['catid']))}
+
+{loop categories_nav($t['catid']) $t1}
+<ul class="column-subcolumn pull-left">
+<li class="column-subcolumn-title">
+<a title="{$t1['catname']}" href="{$t1['url']}">{$t1['catname']}</a>
+{if count(categories($t1['catid']))}
+<ul class="column-subcolumn-list">
+{loop categories_nav($t1['catid']) $t2}
+<li class="column-subcolumn-list-one">
+<a title="{$t2['catname']}" href="{$t2['url']}">{$t2['catname']}</a>
+{if count(categories($t2['catid']))}
+<ul class="column-subcolumn-list">
+{loop categories_nav($t2['catid']) $t3}
+<li class="column-subcolumn-list-two">
+<a title="{$t3['catname']}" href="{$t3['url']}">{$t3['catname']}</a>
+{if count(categories($t3['catid']))}
+<ul class="column-subcolumn-list">
+{loop categories_nav($t3['catid']) $t4}
+<li class="column-subcolumn-list-three">
+<a title="{$t4['catname']}" href="{$t4['url']}">{$t4['catname']}</a>
+</li>
+{/loop}
+</ul>
+{/if}
+</li>
+{/loop}
+</ul>
+{/if}
+</li>
+{/loop}
+</ul>
+{/if}
+</li>
+</ul>
+{/loop}
+
+{/if}
+</li>
+{/loop}
+
+
+    
+</ul>
+</div>
+
+</div>
+
+
+{template 'footer.html'}

@@ -1,0 +1,245 @@
+
+<link rel="stylesheet" href="{$skin_shop_path}/plugins/shop_customer_service/skin/css/base.css" />
+
+<div class="mui-mbar-tabs">
+    <div class="quick_link_mian">
+        <div class="quick_links_panel">
+            <div id="quick_links" class="quick_links">
+                <li>
+                    <a href="#" class="my_qlinks"><i class="setting"></i></a>
+                    <div class="ibar_login_box status_login">
+                        <div class="avatar_box">
+                            <p class="avatar_imgbox"><img src="{$user['headimage']}" alt="headimage" class="img-responsive img-circle" /></p>
+                            <ul class="user_info">
+                                <li>{lang('username')}：{$user.username}</li>
+                                <li>{lang('user_level')}：{usergroupname($user['groupid'])}</li>
+                            </ul>
+                        </div>
+                        <div class="login_btnbox">
+                            <a href="{url('manage/orderslist/manage/orders/type/all')}" class="login_order">{lang('order')}</a>
+                            <a href="{url('archive/consumption')}" class="login_favorite">{lang('shoppingcart')}</a>
+                        </div>
+                        <i class="icon_arrow_white"></i>
+                    </div>
+                </li>
+                <li id="shoppingcart">
+                    <a class="message_list">
+                        <i class="message"></i>
+                        <div class="span">
+                            {lang('shoppingcart')}
+                        </div>
+                        <span class="cart_num cart-cant-total">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{url('manage/consumptionlist/manage/consumption')}" class="history_list"><i class="view"></i></a>
+                    <div class="mp_tooltip" style=" visibility:hidden;">{lang('finance')}<i class="icon_arrow_right_black"></i></div>
+                </li>
+                <!--<li>
+                    <a href="#" class="mpbtn_histroy"><i class="zuji"></i></a>
+                    <div class="mp_tooltip">我的足迹<i class="icon_arrow_right_black"></i></div>
+                </li>-->
+                <li>
+                    <a href="{url('manage/collectlist/manage/user')}" class="mpbtn_wdsc"><i class="wdsc"></i></a>
+                    <div class="mp_tooltip">{lang('collection')}<i class="icon_arrow_right_black"></i></div>
+                </li>
+                <li>
+                    <a href="{url('archive/consumption')}" class="mpbtn_recharge"><i class="chongzhi"></i></a>
+                    <div class="mp_tooltip">{lang('recharge')}<i class="icon_arrow_right_black"></i></div>
+                </li>
+            </div>
+            <div class="quick_toggle">
+                <li>
+                    <a href="tencent://Message/?Uin={get('qq1')}&websiteName={get('site_url')}=&Menu=yes"><i class="kfzx"></i></a>
+                    <div class="mp_tooltip">{lang('contact_customer_service')}<i class="icon_arrow_right_black"></i></div>
+                </li>
+                <li>
+                    <a href="#none"><i class="mpbtn_qrcode"></i></a>
+                    <div class="mp_qrcode" style="display:none;"><img src="{get('weixin_pic')}" class="img-responsive" /><i class="icon_arrow_white"></i></div>
+                </li>
+                <li class="go-top"><a class="return_top" target="_self" style="display:none;"><i class="top"></i></a></li>
+            </div>
+        </div>
+        <div id="quick_links_pop" class="quick_links_pop hide"></div>
+    </div>
+</div>
+
+<div class="shoppingcartbox">
+    <a href="#" id="shoppingcart-Close" class="ibar_closebtn"></a>
+    <div class="ibar_plugin_title"><h3>{lang('shoppingcart')}</h3></div>
+    <div class="blank10"></div>
+    <ul id="shop_getorders">
+    </ul>
+</div>
+
+
+<script type="text/javascript">
+    // 切换侧边栏
+    $(document).ready(function(){
+        $("#shoppingcart").click(function(){
+            $(".shoppingcartbox").css("right","40px"),1000;
+        });
+        $("#shoppingcart-Close").click(function(){
+            $(".shoppingcartbox").css("right","-800px"),1000;
+        });
+    });
+    function goTop(min_height) {
+        $(".quick_links_panel a.return_top").click(
+            function() {
+                $('html,body').animate({
+                    scrollTop: 0
+                }, 700);
+            });
+        //获取页面的最小高度，无传入值则默认为600像素
+        min_height=min_height?min_height:400;
+        //为窗口的scroll事件绑定处理函数
+        $(window).scroll(function() {
+            //获取窗口的滚动条的垂直位置
+            var s = $(window).scrollTop();
+            //当窗口的滚动条的垂直位置大于页面的最小高度时，让返回顶部元素渐现，否则渐隐
+            if (s > min_height) {
+                $(".quick_links_panel a.return_top").fadeIn(100);
+            } else {
+                $(".quick_links_panel a.return_top").fadeOut(200);
+            }
+        });
+    }
+
+
+    $(function() {
+        goTop();
+    });
+</script>
+
+<!-- 购物车抛物线 -->
+<script type="text/javascript" src="{$skin_shop_path}/plugins/shop_customer_service/skin/js/jquery.fly.min.js"></script>
+<script>
+    $('body').on('click','.btnCart',function(event) {
+        var offset = $('#shoppingcart').offset(), flyer = $('<i class="u-flyer glyphicon glyphicon-shopping-cart"></i>');
+        flyer.fly({
+            start: {
+                left: event.pageX,
+                top: event.pageY-$(window).scrollTop(),
+            },
+            end: {
+                left: offset.left+10,
+                top: offset.top-$(window).scrollTop(),
+                width: 20,
+                height: 20
+            } ,
+            onEnd: function() {
+                this.destory(); //销毁抛物体
+            }
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(".quick_links_panel li").mouseenter(function(){
+        $(this).children(".mp_tooltip").animate({left:-92,queue:true});
+        $(this).children(".mp_tooltip").css("visibility","visible");
+        $(this).children(".ibar_login_box").css("display","block");
+    });
+    $(".quick_links_panel li").mouseleave(function(){
+        $(this).children(".mp_tooltip").css("visibility","hidden");
+        $(this).children(".mp_tooltip").animate({left:-121,queue:true});
+        $(this).children(".ibar_login_box").css("display","none");
+    });
+
+
+</script>
+<script>
+    $(function () {
+        getorders();
+    });
+    //getorders
+    function getorders(){
+        $("#shop_getorders").html("");  //先清空购物车悬浮框
+        var url='{url("archive/getorders",false)}';
+        $.ajax({
+            type: "get",
+            url: url,
+            async: false,
+            success: function (data) {
+                var alltotle=0;    //总价
+                data = JSON.parse(data);
+                var i=0;
+                $.each(data, function (key, val) {
+                    i++;
+                    var htmldata="<li class=\"cart_item\">";
+
+                    htmldata+="<div class=\"cart_item_pic\"><a target=\"_blank\" href=\"#\" style=\"display:inline-block;float;left;width:120px;\"><img src=\""+val['thumb']+"\" class=\"img-responsive\"></a></div>";
+                    htmldata+="<div class=\"cart_item_desc\"><a class=\"cart_item_desc\"><a target=\"_blank\" href=\"/index.php?case=archive&amp;act=show&amp;aid="+val['aid']+"\">"+val['title']+"</a>";
+
+                    //my_shop_model,2:blue,jia,1
+                    var prince=Math.round(parseFloat(val['attr2'])); //商品单价
+                    if(val['datatype'].toString()!=""){
+                        var showtype="";
+                        var datatype = val['datatype'].toString().split(";");
+                        for (var index = 0; index < datatype.length; index++) {
+                            var newdatatype=datatype[index].split(":");
+                            newdatatype=newdatatype[1].split(",");
+                            showtype=showtype==""?newdatatype[0]:showtype+"-"+newdatatype[0];
+                            if(newdatatype[1]=="jia"){
+                                prince=prince+parseFloat(newdatatype[2]);
+                            }else  if(newdatatype[1]=="jian"){
+                                prince=prince-parseFloat(newdatatype[2]);
+                            }else  if(newdatatype[1]=="chen"){
+                                prince=prince*parseFloat(newdatatype[2]);
+                            }else  if(newdatatype[1]=="chu"){
+                                prince=prince/parseFloat(newdatatype[2]);
+                            }
+                        }
+
+                        htmldata+="<div class=\"cart_item_sku\"><span>"+showtype+"</span></div>";
+                    }
+                    var num=parseFloat(val['amount']);  //商品数量
+                    var totle=prince*num;   //商品小计
+                    alltotle=alltotle+totle;
+                    htmldata+="<div class=\"cart_item_sku\"><span>{lang('numbers')}："+num+"</span></div>";
+                    htmldata+="<div class=\"cart_item_price\"><span class=\"cart_price\">{lang('unit')}"+totle+"</span></div></div>";
+
+                    htmldata+="<div class=\"clearfix\"></div>";
+                    htmldata+="<a href=\"#\" onclick=\"reomeclick(this);dropclick('"+val['aid']+"','"+val['name']+"');\" title=\"{lang('delete')}\" class=\"orders-del\"><i class=\"glyphicon glyphicon-remove\"></i></a></li>";
+                    htmldata+="<div class=\"clearfix\"></div>";
+                    $("#shop_getorders").append(htmldata);
+                });
+                var htmldata="";
+                if(alltotle>0){
+                    $(".cart-cant-total").text(i);  //商品数量
+
+                    htmldata+="<li class='line'></li>";
+                    htmldata+=" <div class=\"cart_handler\"><div class=\"cart_handler_header\">";
+
+                    htmldata+=" <span class=\"cart_handler_left\"><span class=\"cart_num cart-cant-total\">"+i+"</span>件商品</span>";
+                    htmldata+=" <span class=\"cart_handler_right\">{lang('unit')}"+alltotle+"</span>";
+                    htmldata+="</div>";
+                    htmldata+="<a href=\"{url('archive/orders/settlement/1')}\" class=\"cart_go_btn\" target=\"_blank\">{lang('go_to_cart')}</a>";
+                    htmldata+=" </div>";
+                    htmldata+="</li>";
+                }else{
+                    htmldata+="<h5 class=\"text-center\">{lang('no_merchandise_for_the_time_being')}！</h5>";
+                }
+                $("#shop_getorders").append(htmldata);
+            }
+        });
+    }
+    //删除节点
+    function reomeclick(obj){
+        $(obj).parent().next().remove();
+        $(obj).parent().remove();
+    }
+    //删除cookie
+    function dropclick(aid,key){
+        var url="{url('archive/emptyorders/delete/1')}"+'&key='+key+'&aid='+aid;
+        $.ajax({
+            type: "get",
+            url: url,
+            async: false,
+            success: function (data) {
+                alert("{lang('delete')}{lang('success')}！");
+            }
+        });
+        getorders();
+    }
+</script>

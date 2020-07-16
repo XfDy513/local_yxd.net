@@ -1,0 +1,28 @@
+<div class="swiper-container swiper-auunou">
+        <div class="swiper-wrapper">
+            {loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $archive}
+            <div class="swiper-slide">
+<a style="color:{$arc['color']};" href="{$archive['url']}" title="{$archive['stitle']}" target="_blank">{$archive['title']}<span class="date">{$archive['adddate']}</span></a>
+</div>
+            {/loop}
+        </div>
+        <!-- Add Pagination -->
+         <div class="swiper-button-next swiper-button-next-auunou"><span class="glyphicon glyphicon-menu-right"></span></div>
+    <div class="swiper-button-prev swiper-button-prev-auunou"><span class="glyphicon glyphicon-menu-left"></span></div>
+    </div>
+	<script>
+    var swiper = new Swiper('.swiper-auunou', {
+        direction: 'vertical',
+        slidesPerView: 1,
+        spaceBetween: 30,
+        mousewheel: true,
+        navigation: {
+        nextEl: '.swiper-button-next-auunou',
+        prevEl: '.swiper-button-prev-auunou',
+      },
+		autoplay: {
+        delay: 10000,
+        disableOnInteraction: false,
+      },
+    });
+    </script>

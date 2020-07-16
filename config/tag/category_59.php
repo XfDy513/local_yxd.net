@@ -1,0 +1,1 @@
+a:10:{s:10:"onlymodify";s:0:"";s:4:"name";s:45:"商城页面第一行左侧推荐专题大图";s:7:"tagfrom";s:7:"special";s:4:"spid";s:1:"1";s:7:"spimage";s:1:"1";s:3:"len";s:0:"";s:11:"tagtemplate";s:24:"tag_special-index-1.html";s:10:"tagcontent";s:4:"null";s:6:"submit";s:6:"提交";s:5:"attr1";s:1:"0";}

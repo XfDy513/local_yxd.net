@@ -1,0 +1,252 @@
+<?php
+if(config::get('cslide_style_position')=='1'){
+$cslide_style_position='text-center';
+}elseif(config::get('cslide_style_position')=='2'){
+$cslide_style_position='text-right';
+}else{
+$cslide_style_position='text-left';
+}
+
+?>
+<?php
+if(config::get('cslide_btn_shape')=='2'){
+$cslide_btn_shape = 'border-radius: 0;';
+$cslide_btn_width = config::get('cslide_btn_width');
+$cslide_btn_height = config::get('cslide_btn_height');
+}else{
+$cslide_btn_width = config::get('cslide_btn_width');
+$cslide_btn_height = $cslide_btn_width;
+}
+
+?>
+
+
+<!-- Swiper -->
+<div class="row">
+	<div class="swiper-container visual-swiper-cslide row ">
+		<div class="swiper-wrapper">
+			{if get('cslide_number')=='1'}
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic1_url')}" target="_blank"><img  src="{get('cslide_pic1')}" alt="{get('cslide_pic1_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic1_title')}<h2>{get('cslide_pic1_title')}</h2>{/if}
+							{if get('cslide_pic1_info')}<p class="{$cslide_style_position}">{get('cslide_pic1_info')}</p>{/if}
+							{if get('cslide_pic1_url')}<a href="{get('cslide_pic1_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic1_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			{elseif get('cslide_number')=='2'}
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic1_url')}" target="_blank"><img  src="{get('cslide_pic1')}" alt="{get('cslide_pic1_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic1_title')}<h2>{get('cslide_pic1_title')}</h2>{/if}
+							{if get('cslide_pic1_info')}<p class="{$cslide_style_position}">{get('cslide_pic1_info')}</p>{/if}
+							{if get('cslide_pic1_url')}<a href="{get('cslide_pic1_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic1_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic2_url')}" target="_blank"><img  src="{get('cslide_pic2')}" alt="{get('cslide_pic2_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic2_title')}<h2>{get('cslide_pic2_title')}</h2>{/if}
+							{if get('cslide_pic2_info')}<p class="{$cslide_style_position}">{get('cslide_pic2_info')}</p>{/if}
+							{if get('cslide_pic2_url')}<a href="{get('cslide_pic2_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic2_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			{elseif get('cslide_number')=='3'}
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic1_url')}" target="_blank"><img  src="{get('cslide_pic1')}" alt="{get('cslide_pic1_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic1_title')}<h2>{get('cslide_pic1_title')}</h2>{/if}
+							{if get('cslide_pic1_info')}<p class="{$cslide_style_position}">{get('cslide_pic1_info')}</p>{/if}
+							{if get('cslide_pic1_url')}<a href="{get('cslide_pic1_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic1_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic2_url')}" target="_blank"><img  src="{get('cslide_pic2')}" alt="{get('cslide_pic2_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic2_title')}<h2>{get('cslide_pic2_title')}</h2>{/if}
+							{if get('cslide_pic2_info')}<p class="{$cslide_style_position}">{get('cslide_pic2_info')}</p>{/if}
+							{if get('cslide_pic2_url')}<a href="{get('cslide_pic2_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic2_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic3_url')}" target="_blank"><img  src="{get('cslide_pic3')}" alt="{get('cslide_pic3_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic3_title')}<h2>{get('cslide_pic3_title')}</h2>{/if}
+							{if get('cslide_pic3_info')}<p class="{$cslide_style_position}">{get('cslide_pic3_info')}</p>{/if}
+							{if get('cslide_pic3_url')}<a href="{get('cslide_pic3_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic3_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			{elseif get('cslide_number')=='4'}
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic1_url')}" target="_blank"><img  src="{get('cslide_pic1')}" alt="{get('cslide_pic1_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic1_title')}<h2>{get('cslide_pic1_title')}</h2>{/if}
+							{if get('cslide_pic1_info')}<p class="{$cslide_style_position}">{get('cslide_pic1_info')}</p>{/if}
+							{if get('cslide_pic1_url')}<a href="{get('cslide_pic1_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic1_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic2_url')}" target="_blank"><img  src="{get('cslide_pic2')}" alt="{get('cslide_pic2_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic2_title')}<h2>{get('cslide_pic2_title')}</h2>{/if}
+							{if get('cslide_pic2_info')}<p class="{$cslide_style_position}">{get('cslide_pic2_info')}</p>{/if}
+							{if get('cslide_pic2_url')}<a href="{get('cslide_pic2_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic2_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic3_url')}" target="_blank"><img  src="{get('cslide_pic3')}" alt="{get('cslide_pic3_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic3_title')}<h2>{get('cslide_pic3_title')}</h2>{/if}
+							{if get('cslide_pic3_info')}<p class="{$cslide_style_position}">{get('cslide_pic3_info')}</p>{/if}
+							{if get('cslide_pic3_url')}<a href="{get('cslide_pic3_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic3_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic4_url')}" target="_blank"><img  src="{get('cslide_pic4')}" alt="{get('cslide_pic4_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic4_title')}<h2>{get('cslide_pic4_title')}</h2>{/if}
+							{if get('cslide_pic4_info')}<p class="{$cslide_style_position}">{get('cslide_pic4_info')}</p>{/if}
+							{if get('cslide_pic4_url')}<a href="{get('cslide_pic4_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic4_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			{else}
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic1_url')}" target="_blank"><img  src="{get('cslide_pic1')}" alt="{get('cslide_pic1_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic1_title')}<h2>{get('cslide_pic1_title')}</h2>{/if}
+							{if get('cslide_pic1_info')}<p class="{$cslide_style_position}">{get('cslide_pic1_info')}</p>{/if}
+							{if get('cslide_pic1_url')}<a href="{get('cslide_pic1_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic1_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic2_url')}" target="_blank"><img  src="{get('cslide_pic2')}" alt="{get('cslide_pic2_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic2_title')}<h2>{get('cslide_pic2_title')}</h2>{/if}
+							{if get('cslide_pic2_info')}<p class="{$cslide_style_position}">{get('cslide_pic2_info')}</p>{/if}
+							{if get('cslide_pic2_url')}<a href="{get('cslide_pic2_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic2_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic3_url')}" target="_blank"><img  src="{get('cslide_pic3')}" alt="{get('cslide_pic3_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic3_title')}<h2>{get('cslide_pic3_title')}</h2>{/if}
+							{if get('cslide_pic3_info')}<p class="{$cslide_style_position}">{get('cslide_pic3_info')}</p>{/if}
+							{if get('cslide_pic3_url')}<a href="{get('cslide_pic3_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic3_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic4_url')}" target="_blank"><img  src="{get('cslide_pic4')}" alt="{get('cslide_pic4_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic4_title')}<h2>{get('cslide_pic4_title')}</h2>{/if}
+							{if get('cslide_pic4_info')}<p class="{$cslide_style_position}">{get('cslide_pic4_info')}</p>{/if}
+							{if get('cslide_pic4_url')}<a href="{get('cslide_pic4_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic4_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="swiper-slide">
+				<div class="visual-swiper-cslide-item">
+					<a href="{get('cslide_pic5_url')}" target="_blank"><img  src="{get('cslide_pic5')}" alt="{get('cslide_pic5_title')}"></a>
+					<div class="visual-swiper-cslide-item-text  {$cslide_style_position}">
+						<div class="container">
+							{if get('cslide_pic5_title')}<h2>{get('cslide_pic5_title')}</h2>{/if}
+							{if get('cslide_pic5_info')}<p class="{$cslide_style_position}">{get('cslide_pic5_info')}</p>{/if}
+							{if get('cslide_pic5_url')}<a href="{get('cslide_pic5_url')}" target="_blank" class="btn visual-swiper-cslide-btn">{get('slide_pic5_title_url')}</a>{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+			{/if}
+		</div>
+		<div class="swiper-pagination visual-swiper-cslide-pagination"></div>
+		<div class="swiper-button-next visual-swiper-cslide-next"></div>
+		<div class="swiper-button-prev visual-swiper-cslide-prev"></div>
+	</div>
+</div>
+
+<script>
+	var myswiper = new Swiper('.visual-swiper-cslide', {
+		slidesPerView: 1,
+		spaceBetween: 1,
+		loop: true,
+		lazy: true,
+		pagination: {
+			el: '.visual-swiper-cslide-pagination',
+			clickable: true,
+		},
+		navigation: {
+			nextEl: '.visual-swiper-cslide-next',
+			prevEl: '.visual-swiper-cslide-prev',
+		},
+		autoplay: {
+			delay: {get('cslide_time')}000,
+			stopOnLastSlide: false,
+			disableOnInteraction: true,
+	},
+	});
+</script>
+<style type="text/css">
+	.visual-swiper-cslide-item-text h2,
+	.visual-swiper-cslide-item-text p{color:{get('cslide_text_color')};}
+	.visual-swiper-cslide-item-text a.visual-swiper-cslide-btn {background:{get('cslide_input_bg')};color:{get('cslide_input_color')};}
+	.visual-swiper-cslide-pagination .swiper-pagination-bullet{width:{$cslide_btn_width}px;height:{$cslide_btn_height}px;background:{get('cslide_btn_color')};opacity: 1;transition: all .3s linear; {$cslide_btn_shape}}
+	.visual-swiper-cslide-pagination .swiper-pagination-bullet-active{background:{get('cslide_btn_hover_color')};}
+	.visual-swiper-cslide .visual-swiper-cslide-prev,
+	.visual-swiper-cslide .visual-swiper-cslide-next{color:{get('cslide_button_color')};font-size:{get('cslide_button_size')}px;}
+</style>
+
+

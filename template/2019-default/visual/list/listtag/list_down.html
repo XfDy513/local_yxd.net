@@ -1,0 +1,23 @@
+<div class="codearea">
+	<div class="column-list-down">
+		<ul>
+			#[#loop $archives $i $archive#]#
+			<li><a title="#[#$archive['stitle']#]#" href="#[#$archive['url']#]#" target="_blank" >#[#$archive['title']#]#</a><span>{if $archive['attachment_path']}{attachment_js($archive['aid'])}{else}<a class="visual-content-down-link-btn">{lang('nodownload')}</a>{/if}</span></li>
+			#[#/loop#]#
+		</ul>
+	</div> 
+</div>
+<div class="viewarea">
+	<div class="column-list-down">
+		<ul>
+			<li><a><?php echo lang_admin('content_title');?></a><span><a class="visual-content-down-link-btn"><?php echo lang_admin('click_download');?></a></span></li>
+			<li><a><?php echo lang_admin('content_title');?></a><span><a class="visual-content-down-link-btn"><?php echo lang_admin('click_download');?></a></span></li>
+			<li><a><?php echo lang_admin('content_title');?></a><span><a class="visual-content-down-link-btn"><?php echo lang_admin('click_download');?></a></span></li>
+			<li><a><?php echo lang_admin('content_title');?></a><span><a class="visual-content-down-link-btn"><?php echo lang_admin('click_download');?></a></span></li>
+			<li><a><?php echo lang_admin('content_title');?></a><span><a class="visual-content-down-link-btn"><?php echo lang_admin('click_download');?></a></span></li>
+			<li><a><?php echo lang_admin('content_title');?></a><span><a class="visual-content-down-link-btn"><?php echo lang_admin('click_download');?></a></span></li>
+			<li><a><?php echo lang_admin('content_title');?></a><span><a class="visual-content-down-link-btn"><?php echo lang_admin('click_download');?></a></span></li>
+			<li><a><?php echo lang_admin('content_title');?></a><span><a class="visual-content-down-link-btn"><?php echo lang_admin('click_download');?></a></span></li>
+		</ul>
+	</div> 
+</div>

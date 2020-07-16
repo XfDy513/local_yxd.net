@@ -1,0 +1,42 @@
+{template 'header.html'}<div class="container-fluid clearfix view-html">
+	{template 'system/random_jpg.html'}
+	<div class="list-title list-title2">
+		<div class="container">
+			<p class="column-htmldir">
+				Type
+			</p>
+			<h4 class="column-title">
+				{$type['typename']}
+			</h4>
+		</div>
+	</div>
+	<div class="container clearfix">
+		<div class="row column">
+			<div class="type-products">
+				<ul>
+					{loop $archives $i $archive} {if $i%5==0 && $i>0 }
+					<div class="clearfix visible-md-block visible-lg-block">
+					</div> {elseif $i%3==0 && $i>0}
+					<div class="clearfix visible-sm-block">
+					</div> {/if}
+					<li>
+						<div class="type-products-img">
+							 <a title="{$archive['stitle']}" href="{$archive['url']}" target="_blank"><img alt="{$archive['stitle']}" src="{$archive['thumb']}" /></a>
+						</div>
+						<div class="type-products-text">
+							<h4>
+								<a title="{$archive['stitle']}" href="{$archive['url']}" target="_blank">{$archive['title']}</a>
+							</h4>
+							<p>
+								{$archive['subtitle']}
+							</p> <span class="pull-left">{lang('unit')} {$archive['attr2']}</span> <span class="pull-right">{getcollect($archive['aid'])}</span>
+						</div>
+					</li> {/loop}
+				</ul>
+			</div>
+			<div class="type-pagination">
+				{if isset($pages)} {type_pagination($typeid)} {/if}
+			</div>
+		</div>
+	</div>
+</div>{template 'footer.html'}

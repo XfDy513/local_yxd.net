@@ -1,0 +1,176 @@
+{template 'header.html'}<div class="clearfix view-html">
+	{template 'system/random_jpg.html'}
+	<div class="list-title list-title2">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-8">
+					<h4 class="content-title">
+						{$archive['title']}
+					</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container clearfix">
+		<div class="row column">
+			<div class="col-md-6">
+				<div class="row column">
+					<div class="swiper-container content-picture swiper-container-initialized swiper-container-horizontal">
+						<div class="swiper-wrapper" id="lightgallery" role="listbox">
+							{loop $archive['pics'] $i $pic}
+							<div class="swiper-slide" data-src="{$pic['url']}" data-sub-html="{$pic['alt']}">
+								<div class="content-picture-tiem">
+									 <a href="#" onclick="gotourl(this)" rel="lightbox['roadtrip']"><img src="{$pic['url']}" alt="{$pic['alt']}" /></a>
+								</div>
+							</div> {/loop}
+						</div>
+						<div class="swiper-pagination content-picture-pagination swiper-pagination-bullets swiper-pagination-bullets-dynamic">
+						</div><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span><span class="swiper-notification"></span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="row column">
+					<div id="print" class="content-text">
+						<div class="shop-box">
+							<div class="shop-title">
+								<h1>
+									{$archive['title']}
+								</h1>
+								<p>
+									{$archive['subtitle']}
+								</p>
+							</div>
+							<div class="shop-oldprice">
+								<dt>
+									{lang('price')}
+								</dt>
+								<dd>
+									{lang('unit')} <span>{$archive['oldprice']}</span>
+								</dd>
+							</div>
+							<div class="shop-price">
+								<dt>
+									{lang('membership_price')}
+								</dt>
+								<dd>
+									{lang('unit')}<span id="shop-price"></span>
+								</dd>
+							</div>
+							<div class="shop-salesnum">
+								<dt>
+									{lang('sales_volume')}
+								</dt>
+								<dd>
+									{$archive['salesnum']}
+								</dd>
+							</div>
+							<div class="shop-salesnum">
+								<dt>
+									{lang('stock')}
+								</dt>
+								<dd id="shop-inventory">
+								</dd>
+							</div>
+							<form>
+								<div class="shop-type">
+									<div id="columntype">
+									</div>
+									<div class="shop-type-info">
+										<dt>
+											{lang('numbers')}
+										</dt>
+										<dd>
+											<input type="text" name="amount" class="shop-number" id="thisnum" value="1" onblur="setthisnum($('#shop-inventory').text(),'{url('archive/getshoppinginventory/aid/'.$archive['aid'])}')" /> 
+											<button class="shop-number-btn1" type="button" value="上" onclick="setadd('{url('archive/getshoppinginventory/aid/'.$archive['aid'])}')">
+												<span class="glyphicon glyphicon-menu-up"></span>
+											</button> 
+											<button class="shop-number-btn2" type="button" value="下" onclick="setmin()">
+												<span class="glyphicon glyphicon-menu-down"></span>
+											</button>
+										</dd>
+									</div>
+								</div>
+								<div class="shop-buy">
+									 <a target="_blank" href="javascript:void(0);" onclick="getshoping({$archive['aid']},true)" name="buy" class="buy">{lang('buy')}</a> <a href="{url('archive/doorders/aid/'.$archive['aid'],true)}" id="dialog_link" class="btnCart shoppingcart" data-toggle="modal" data-target="#myModalShop" aria-hidden="true"><span class="glyphicon glyphicon-shopping-cart"></span>{lang('makeorders')}</a>
+								</div>
+								<div id="buyurl">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container clearfix">
+		<div class="row column">
+			<div id="print" class="content-text">
+				{$archive['content']} {if $pages>1}
+				
+				<div class="column-pagination">
+					{archive_pagination($archive)}
+				</div> {/if}
+			</div>
+		</div>
+	</div>
+	<div class="container clearfix text-center">
+		<div class="row column">
+			{getraise($archive['praise'],$archive['aid'])} {getcollect($archive['aid'])}
+		</div>
+	</div>
+	<div class="container clearfix text-center">
+		<div class="row column">
+			<div class="content-archivep-archiven">
+				{if $archive['p']['aid']} <span class="content-archivep"><a href="{$archive['p']['url']}"><strong>{lang('archivep')}</strong>{$archive['p']['title']}</a></span> {else} <span class="content-archivep"><a><strong>{lang('archivep')}</strong>{lang('nopage')}</a></span> {/if} {if $archive['n']['aid']} <span class="content-archiven"><a href="{$archive['n']['url']}"><strong>{lang('archiven')}</strong>{$archive['n']['title']}</a></span> {else} <span class="content-archiven"><a><strong>{lang('archiven')}</strong>{lang('nopage')}</a></span> {/if}
+				<div class="clearfix">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container clearfix">
+		<div class="row column">
+			<div class="content-comment">
+				{template 'comment/comment.html'}
+			</div>
+		</div>
+	</div>
+	<div class="container clearfix">
+		<div class="row column">
+			<div class="content-relevant">
+				{if is_array($likenews)}
+				<div class="content-relevant-title">
+					<h4>
+						{$archive['tag']}
+					</h4>
+					<p>
+						/ {lang('relatedcontent')}
+					</p>
+				</div>
+				<div class="content-relevant-list-pic">
+					<div class="row">
+						{loop $likenews $item}
+						<div class="col-sm-4">
+							<div class="content-relevant-list-pic-item">
+								<div class="content-relevant-list-pic-img">
+									 <a href="#[$item#['url']}" target="_blank"><img alt="#[$item#['stitle']}" src="#[$item#['thumb']}" /></a>
+								</div>
+								<div class="content-relevant-list-pic-text">
+									<h4>
+										#[$item#['title']}
+									</h4>
+									<p>
+										{cut(strip_tags($archive['introduce']),66)}
+									</p>
+								</div>
+								<div class="content-relevant-list-pic-more">
+									 <a href="#[$item#['url']}" target="_blank">more ></a>
+								</div>
+							</div>
+						</div> {/loop}
+					</div>
+				</div> {/if}
+			</div>
+		</div>
+	</div>
+</div>{template 'footer.html'}

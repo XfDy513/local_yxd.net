@@ -1,0 +1,17 @@
+{loop plugins::categoryinfo($_catid) $c}
+
+
+
+<div class="col-md-6 course-left" style="background:url({$c[image]}) center center no-repeat; background-size:cover;">
+		
+</div>
+	<div class="col-md-6 course-right">
+		<h3>{$c[catname]}</h3>
+		<p>{cut(strip_tags($c['categorycontent']),120)}</p>
+	    <a href="{$c[url]}">{lang(more)}</a>
+	</div>
+
+
+
+{/loop}
+

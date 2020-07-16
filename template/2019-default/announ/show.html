@@ -1,0 +1,31 @@
+{template 'header.html'}<div class="container-fluid clearfix view-html">
+	{template 'system/random_jpg.html'}
+	<div class="list-title list-title2">
+		<div class="container">
+			<div class="row">
+				<p class="column-htmldir">
+					Announ
+				</p>
+				<h4 class="column-title">
+					{$announ['title']}
+				</h4>
+			</div>
+		</div>
+	</div>
+	<div class="container clearfix">
+		<div class="row column">
+			<div class="visual-print">
+				<p class="visual-print-tools">
+					 <a href="javascript:CallPrint('print');"><em class="glyphicon glyphicon-print"></em></a> <a href="javascript:doZoom(14)">{lang('small')}</a> <a href="javascript:doZoom(18)">{lang('middle')}</a> <a href="javascript:doZoom(20)">{lang('big')}</a>
+				</p>
+			</div>
+			
+			<div id="print" class="content-text">
+					{$announ['content']}
+				</div>
+			<div class="content-adddate column">
+					 <span>{lang('adddate')}：</span>{$announ['adddate']}
+				</div>
+		</div>
+	</div>
+</div>{template 'footer.html'}

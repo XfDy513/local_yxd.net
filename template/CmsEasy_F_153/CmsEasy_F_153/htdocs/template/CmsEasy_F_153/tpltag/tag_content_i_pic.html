@@ -1,0 +1,28 @@
+
+<div class="col-md-6 wel-left">
+
+
+{loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $i $archive}
+
+{if $i%2==0 && $i>1}
+<div class="clearfix"> </div>
+</div>
+<div class="col-md-6 wel-right">
+{/if}
+
+	      	  	 <div class="wel-block">
+		      	  	 <div class="wel-img">
+						<a href="{$archive['url']}" target="_blank" class="img-auto"><img class="img-responsive" alt="{$archive['stitle']}" src="{$archive['thumb']}" onerror='this.src="{config::get('onerror_pic')}"' /></a>
+		      	  	 </div>
+		      	  	 <div class="wel-text">
+		      	  	 	<h4><a href="{$archive['url']}" style="color:{$arc[color]};" target="_blank" >{$archive['title']}</a></h4>
+		      	  	 	<p>{$archive[intro]}</p>
+		      	  	 </div>
+		      	   <div class="clearfix"> </div>
+	      	    </div>
+
+
+
+{/loop}
+
+</div>

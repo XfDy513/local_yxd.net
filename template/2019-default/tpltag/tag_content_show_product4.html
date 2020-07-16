@@ -1,0 +1,6 @@
+{loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $archive}
+ <div class="show_products4-item">
+	<img alt="{$archive['stitle']}" class="lazy" data-original="{$archive['thumb']}" />
+	<h5>{$archive['title']}</h5>
+</div>
+{/loop}

@@ -1,0 +1,60 @@
+{template 'header.html'}
+<!-- 面包屑导航开始 -->
+{template 'position.html'}
+<!-- 面包屑导航结束 -->
+
+<!-- 页面标题开始 -->
+<div class="t_1">
+<div>
+<h3>{$category[$catid][catname]}</h3>
+<p>{$category[$catid][htmldir]}</p>
+</div>
+</div>
+
+
+<!-- 页面标题结束 -->
+<div class="blank30"></div>
+<div class="blank30"></div>
+<!-- 中部开始 -->
+<div class="w_set">
+<style type="text/css">
+table,td,tr {border:1px solid #ccc;padding:10px 0 5px ; }
+ </style>
+
+<!-- 内容列表开始 -->
+<table id="table" width="100%" border="1" align="center" cellpadding="8" cellspacing="0" style="border-radius: 3px 3px 3px 3px;"> 
+<tr> 
+<td height="32" width="44" align="center" background="{$skin_path}/images/th_bg.jpg"><strong>{lang('no.')}</strong></td> 
+<td width="184" align="center" background="{$skin_path}/images/th_bg.jpg"><strong>{lang('recruitmentpost')}</strong></td> 
+<td width="199" align="center" background="{$skin_path}/images/th_bg.jpg"><strong>{lang('recruitingdepartment')}</strong></td> 
+<td width="84" align="center" background="{$skin_path}/images/th_bg.jpg"><strong>{lang('releasetime')}</strong></td> 
+<td width="101" align="center" background="{$skin_path}/images/th_bg.jpg"><strong>{lang('intro')}</strong></td> 
+</tr> 
+{loop $archives $i $arc}
+<tr> 
+<td height="32" align="center">{=$i+1}</td> 
+<td height="32" align="center"><a title="{$arc['stitle']}" target="_blank" href="{$arc['url']}">{$arc['title']}</a></td> 
+<td height="32" align="center">{$arc['my_zhaopinbumen']}</td> 
+<td height="32" align="center">{$arc['adddate']}</span></td> 
+<td height="32" align="center"><a title="{$arc['stitle']}" target="_blank" href="{$arc['url']}" class="table_more">{lang(details)}</a></td> 
+</tr> 
+{/loop}
+</table>
+<!-- 内容列表结束 -->
+
+
+
+<!-- 列表分页开始 -->
+{if isset($pages)}<div class="blank30"></div><div class="blank30"></div>
+{category_pagination($catid)}
+{/if}
+<!-- 列表分页结束 -->
+
+</div>
+
+</div>
+<div class="blank30"></div>
+<div class="blank30"></div>
+<div class="blank30"></div>
+<div class="blank30"></div>
+{template 'footer.html'}

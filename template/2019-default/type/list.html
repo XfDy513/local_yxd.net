@@ -1,0 +1,68 @@
+{template 'header.html'}<div class="container-fluid clearfix view-html">
+	{template 'system/random_jpg.html'}
+	<div class="list-title list-title2">
+		<div class="container">
+			<p class="column-htmldir">
+				Type
+			</p>
+			<h4 class="column-title">
+				{$type['typename']}
+			</h4>
+		</div>
+	</div>
+	<div class="container clearfix">
+		<div class="row column">
+			<div class="col-md-8">
+				<div class="row column">
+					<div class="type-list">
+						<ul>
+							{loop $archives $archive}
+							<li>
+								<span>{$archive['adddate']}</span><a title="{$archive['stitle']}" href="{$archive['url']}" target="_blank">{$archive['title']}</a>
+							</li> {/loop}
+						</ul>
+					</div>
+					<div class="type-pagination">
+						{if isset($pages)} {type_pagination($typeid)} {/if}
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="row column">
+					{tag_热门排行}
+					<div class="new-teg">
+						<div class="title20">
+							<p>
+								hot news
+							</p>
+							<h4>
+								TAG
+							</h4>
+						</div>
+						<div class="new-teg-list">
+							{loop tags($catid,10) $tag} <a href="{$tag['url']}" style="color:{$tag['tag_txtcolor']};size:{$tag['tag_txtsize']}">{$tag['tag']}</a> {/loop}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix">
+			</div>
+		</div>
+	</div>
+	<div class="list-title list-title2">
+		<div class="container">
+			<p class="column-htmldir">
+				{$type[$typeid]['htmldir']}
+			</p>
+			<h4 class="column-title">
+				{$type['typename']}
+			</h4>
+			<ul class="column-subcolumn">
+				{loop type($topid) $t}
+				<li class="column-subcolumn-title">
+					<a href="{$t['url']}" title="{$t['typename']}">{$t['typename']}</a>
+				</li> {/loop}
+			</ul>
+		</div>
+	</div>
+</div>{template 'footer.html'}

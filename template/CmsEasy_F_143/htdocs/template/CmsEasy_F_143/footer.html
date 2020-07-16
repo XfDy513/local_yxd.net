@@ -1,0 +1,101 @@
+
+<div class="blank20"></div>
+
+		<!--footer-->
+		<div class="footer">
+			<div class="container">
+				<div class="col-md-4 footer-grids wow fadeInDown animated" data-wow-delay=".5s">
+					{tag_页底左侧栏目说明}
+				</div>
+				<div class="col-md-4 footer-grids footer-address wow fadeInDown animated" data-wow-delay=".5s">
+					<h3>{tag_页底中间栏目}:</h3>
+					<ul>
+						<li><i class="glyphicon glyphicon-send"></i>{get(address)}</li>
+						<li><i class="glyphicon glyphicon-phone"></i>{get(tel)}</li>
+						<li><i class="glyphicon glyphicon-envelope"></i><a href="mailto:{get(email)}">{get(email)}</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 footer-grids wow fadeInDown animated" data-wow-delay=".5s">
+					<h3>{lang(weixinzixun)}:</h3>
+					<ul>
+						<img src="{get(weixin_pic)}" >
+					</ul>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<!--//footer-->
+		<!--copy-right-->
+		<div class="copy-right">
+			<div class="container">
+				<p class="wow bounceIn animated" data-wow-delay=".5s" ><span>{lang(address)}：{get(address)}</span><span>{lang(tel)}：{get(tel)}</span><span>{lang(fax)}：{get(fax)}</span></p>
+				<p class="wow bounceIn animated" data-wow-delay=".5s" ><span>{get('sitename')}  {get(site_right)}</span><span>{get('site_icp')}</span><span>{getCopyRight()}</span>{if config::get('site_login')=='1'}<span>{login_js()}</span>{/if}{if $topid==0}<span>{if config::get('hotsearch')=='1'}{lang('hotkeys')}： {gethotsearch(10)}{/if}</span>{/if}</p>
+			</div>
+		</div>
+		<!--//copy-right-->
+	</div>
+	<!--//main content start-->
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{$skin_path}/js/bootstrap.js"></script>
+<script src="{$skin_path}/js/jquery.SuperSlide.2.1.1.js" type="text/javascript" ></script>
+<!--animate-->
+<script src="{$skin_path}/js/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>
+<!--//end-animate-->
+
+
+ 
+
+
+<div class="servers">
+<!--[if (gte IE 7)|!(IE)]><!-->
+<!-- 在线客服 -->
+{template 'system/servers.html'}
+<![endif]-->
+<!-- 短信 -->
+{template 'system/sms.html'}
+</div>
+
+<div class="servers-wap">
+{if config::get('wap_foot_nav')=='1'}
+{template 'system/foot_nav_a.html'}
+{elseif config::get('wap_foot_nav')=='2'}
+{template 'system/foot_nav_b.html'}
+{elseif config::get('wap_foot_nav')=='3'}
+{template 'system/foot_nav_c.html'}
+{else}
+{/if} 
+</div>
+
+
+<script type="text/javascript" src="{$base_url}/js/common.js"></script>
+
+{if get('share')=='1'}
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=slide&img=6&pos=right&uid=620555" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+		var bds_config = {"bdTop":150};
+		document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?t=" + new Date().getHours();
+</script>
+<!-- Baidu Button END -->
+{/if}
+
+
+{if config::get('site_push')=='1'}
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+{/if}
+
+</body>
+</html>

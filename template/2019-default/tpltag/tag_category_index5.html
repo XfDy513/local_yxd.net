@@ -1,0 +1,24 @@
+{loop plugins::categoryinfo($_catid,$_titlenum,$_textnum) $cat}
+
+
+<div class="section5">
+	<div class="container">
+		<div class="s5 clearfix">
+			<div class="s5-img">
+				<!--<a title="{$cat['catname']}" href="{$cat['url']}" target="_blank"><img alt="{$cat['catname']}" class="lazy" data-original="{$cat['image']}" /></a>-->
+				<a title="{$cat['catname']}" ><img alt="{$cat['catname']}" class="lazy" data-original="{$cat['image']}" /></a>
+			</div>
+			<div class="s5-text">
+				<!--<h4><a title="{$cat['catname']}" href="{$cat['url']}" target="_blank">{$cat['catname']}</a></h4>-->
+				<h4><a title="{$cat['catname']}" >{$cat['catname']}</a></h4>
+				<span>{$cat['htmldir']}</span>
+				<p>{$cat['categorycontent']}</p>
+				<em></em>
+			</div>
+		</div>
+	</div>
+</div>
+
+ 
+
+{/loop}

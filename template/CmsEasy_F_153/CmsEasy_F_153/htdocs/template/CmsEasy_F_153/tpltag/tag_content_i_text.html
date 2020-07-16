@@ -1,0 +1,20 @@
+{loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $archive}
+
+
+
+
+
+<div class="col-md-6 admission-left">
+	<span class="quot1"> </span>
+	<div class="quot-text">
+		<p>{$archive[intro]}</p>
+		<h4><a style="color:{$arc[color]};" href="{$archive[url]}" title="{$archive['stitle']}" target="_blank">{$archive[title]}</a></h4>
+	</div>
+	<div class="clearfix"> </div>
+</div>
+
+
+
+
+
+{/loop}

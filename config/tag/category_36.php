@@ -1,0 +1,1 @@
+a:10:{s:10:"onlymodify";s:0:"";s:4:"name";s:39:"商城页面第二行右侧栏目图片";s:7:"tagfrom";s:8:"category";s:5:"catid";s:2:"13";s:8:"titlenum";s:2:"20";s:7:"textnum";s:1:"0";s:11:"tagtemplate";s:26:"tag_category_product2.html";s:10:"tagcontent";s:4:"null";s:6:"submit";s:6:"提交";s:5:"attr1";s:1:"0";}

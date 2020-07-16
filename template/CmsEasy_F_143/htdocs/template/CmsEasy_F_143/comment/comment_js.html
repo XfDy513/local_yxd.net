@@ -1,0 +1,40 @@
+{if config::get('comment_list')=='1'}
+<div class="blank30"></div>
+<!-- 页面标题开始 -->
+<div class="t_1">
+<div>
+<h3>{lang('commentlist')}</h3>
+<p>Comment List</p>
+</div>
+</div>
+<div class="w_set">
+<!-- 评论列表开始 -->
+<div class="comment_list">
+{loop $comments $comment}
+
+<div class="comm_head"></div>
+<div class="comm_content">
+<div id="comm_content"></div>
+<p>{strip_tags($comment['content'])}</p>
+<p><strong>{$comment['username']}</strong><span>{sdate($comment['adddate'],'Y-m-d H:i')}</span></p>
+<?php if(!isset($i)) $i=0;  $i++; if($i<count($comments)) {echo "<br>";} else unset($i); ?>
+</div>
+<div class="blank10"></div>
+{/loop}
+</div>
+<!-- 评论列表结束 -->
+<div class="blank30"></div>
+<div class="clear blank30"></div>
+<div class="pages">
+{pagination::html($record_count)}
+</div>
+<div class="blank30"></div>
+</div>
+{else}
+<div class="t_1">
+<div>
+<h3>{lang(commentlist)}{lang(close)}</h3>
+<p>Comment List</p>
+</div>
+</div>
+{/if}

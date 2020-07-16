@@ -1,0 +1,140 @@
+<div class="codearea">
+	<div class="content-products">
+		<ul>
+			#[#loop $archives $i $archive#]#
+			#[#if $i%5==0 && $i>0 #]#
+			<div class="clearfix visible-md-block visible-lg-block"></div>
+			#[#elseif $i%3==0 && $i>0#]#
+			<div class="clearfix visible-sm-block"></div>
+			#[#/if#]#
+			<li>
+				<div class="content-products-img">
+					<a title="#[#$archive['stitle']#]#" href="#[#$archive['url']#]#" target="_blank"><img alt="#[#$archive['stitle']#]#" src="#[#$archive['thumb']#]#"/></a>
+				</div>
+				<div class="content-products-text">
+					<h4><a title="#[#$archive['stitle']#]#" href="#[#$archive['url']#]#" target="_blank" >#[#$archive['title']#]#</a></h4>
+					<p>#[#$archive['subtitle']#]#</p>
+					<span class="pull-left">#[#lang('unit')#]# #[#$archive['attr2']#]#</span>
+					<span class="pull-right">#[#getcollect($archive['aid'])#]#</span>
+				</div>
+			</li>
+			#[#/loop#]#
+		</ul>
+	</div>
+</div>
+<div class="viewarea">
+	<div class="content-products">
+		<ul>
+			<li>
+				<div class="content-products-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-1.jpg"  /></a>
+				</div>
+				<div class="content-products-text">
+					<h4><a><?php echo lang_admin('productname');?></a></h4>
+					<p><?php echo lang_admin('productsubname');?></p>
+					<span class="pull-left"><?php echo lang_admin('unit');?> 198</span>
+					<span class="pull-right"><i class="icon-heart collection-btn" type="button" value="{lang_admin('collection')}"></i></span>
+				</div>
+			</li>
+			<li>
+				<div class="content-products-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-2.jpg"  /></a>
+				</div>
+				<div class="content-products-text">
+					<h4><a><?php echo lang_admin('productname');?></a></h4>
+					<p><?php echo lang_admin('productsubname');?></p>
+					<span class="pull-left"><?php echo lang_admin('unit');?> 198</span>
+					<span class="pull-right"><i class="icon-heart collection-btn" type="button" value="{lang_admin('collection')}"></i></span>
+				</div>
+			</li>
+			<li>
+				<div class="content-products-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-3.jpg"  /></a>
+				</div>
+				<div class="content-products-text">
+					<h4><a><?php echo lang_admin('productname');?></a></h4>
+					<p><?php echo lang_admin('productsubname');?></p>
+					<span class="pull-left"><?php echo lang_admin('unit');?> 198</span>
+					<span class="pull-right"><i class="icon-heart collection-btn" type="button" value="{lang_admin('collection')}"></i></span>
+				</div>
+			</li>
+			<li>
+				<div class="content-products-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-4.jpg"  /></a>
+				</div>
+				<div class="content-products-text">
+					<h4><a><?php echo lang_admin('productname');?></a></h4>
+					<p><?php echo lang_admin('productsubname');?></p>
+					<span class="pull-left"><?php echo lang_admin('unit');?> 198</span>
+					<span class="pull-right"><i class="icon-heart collection-btn" type="button" value="{lang_admin('collection')}"></i></span>
+				</div>
+			</li>
+			<li>
+				<div class="content-products-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-5.jpg"  /></a>
+				</div>
+				<div class="content-products-text">
+					<h4><a><?php echo lang_admin('productname');?></a></h4>
+					<p><?php echo lang_admin('productsubname');?></p>
+					<span class="pull-left"><?php echo lang_admin('unit');?> 198</span>
+					<span class="pull-right"><i class="icon-heart collection-btn" type="button" value="{lang_admin('collection')}"></i></span>
+				</div>
+			</li>
+			<li>
+				<div class="content-products-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-6.jpg"  /></a>
+				</div>
+				<div class="content-products-text">
+					<h4><a><?php echo lang_admin('productname');?></a></h4>
+					<p><?php echo lang_admin('productsubname');?></p>
+					<span class="pull-left"><?php echo lang_admin('unit');?> 198</span>
+					<span class="pull-right"><i class="icon-heart collection-btn" type="button" value="{lang_admin('collection')}"></i></span>
+				</div>
+			</li>
+			<li>
+				<div class="content-products-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-7.jpg"  /></a>
+				</div>
+				<div class="content-products-text">
+					<h4><a><?php echo lang_admin('productname');?></a></h4>
+					<p><?php echo lang_admin('productsubname');?></p>
+					<span class="pull-left"><?php echo lang_admin('unit');?> 198</span>
+					<span class="pull-right"><i class="icon-heart collection-btn" type="button" value="{lang_admin('collection')}"></i></span>
+				</div>
+			</li>
+			<li>
+				<div class="content-products-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-8.jpg"  /></a>
+				</div>
+				<div class="content-products-text">
+					<h4><a><?php echo lang_admin('productname');?></a></h4>
+					<p><?php echo lang_admin('productsubname');?></p>
+					<span class="pull-left"><?php echo lang_admin('unit');?> 198</span>
+					<span class="pull-right"><i class="icon-heart collection-btn" type="button" value="{lang_admin('collection')}"></i></span>
+				</div>
+			</li>
+			<li>
+				<div class="content-products-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-9.jpg"  /></a>
+				</div>
+				<div class="content-products-text">
+					<h4><a><?php echo lang_admin('productname');?></a></h4>
+					<p><?php echo lang_admin('productsubname');?></p>
+					<span class="pull-left"><?php echo lang_admin('unit');?> 198</span>
+					<span class="pull-right"><i class="icon-heart collection-btn" type="button" value="{lang_admin('collection')}"></i></span>
+				</div>
+			</li>
+			<li>
+				<div class="content-products-img">
+					<a><img src="./common/plugins/visual/images/modules/section-pic-10.jpg"  /></a>
+				</div>
+				<div class="content-products-text">
+					<h4><a><?php echo lang_admin('productname');?></a></h4>
+					<p><?php echo lang_admin('productsubname');?></p>
+					<span class="pull-left"><?php echo lang_admin('unit');?> 198</span>
+					<span class="pull-right"><i class="icon-heart collection-btn" type="button" value="{lang_admin('collection')}"></i></span>
+				</div>
+			</li>			
+		</ul>
+	</div>
+</div>

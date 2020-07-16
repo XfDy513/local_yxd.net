@@ -1,0 +1,14 @@
+<div class="foot-ul">
+	<ul>
+	{loop plugins::categoryinfo($_catid,$_titlenum,$_textnum) $c}
+	<h4><a title="{$c['catname']}" href="{$c['url']}" target="_blank">{$c['catname']}</a></h4>
+	{/loop}
+	{loop plugins::categoryinfo($_catid,$_titlenum,$_textnum) $cat}
+	{loop categories($cat['catid'],null,$_titlenum,$_textnum) $cat}
+	<li><a title="{$cat['catname']}" href="{$cat['url']}" target="_blank">{$cat['catname']}</a></li>
+	{/loop}  
+	{/loop}  
+	</ul>
+</div>
+
+

@@ -1,0 +1,60 @@
+{template_shopping 'header.html'}
+
+{template_shopping 'top-product.html'}
+
+<div class="banner2">
+	<div class="banner2-bg">
+		<div class="container">
+			<div class="banner2-title">
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	{template_shopping 'screening/screening.html'}
+	<div class="clearfix"></div>
+</div>
+
+
+
+<div class="container">
+	<div class="row">
+		<div class="content-products">
+			<ul>
+				{if count($archives)>0}
+				{loop $archives $i $archive}
+				<li class="col-md-4 col-lg-3 col-xs-6 col-ms-3">
+					<div class="content-products-img">
+						<a title="{$archive['stitle']}" href="{url('archive/show/aid/'.$archive['aid'])}" target="_blank"><img alt="{$archive['stitle']}" src="{$archive['thumb']}" class="swiper-lazy" /></a>
+						<div class="swiper-lazy-preloader swiper-lazy-preloader-white">
+						</div>
+					</div>
+					<div class="content-products-text">
+						<h4>
+							<a title="{$archive['stitle']}" href="{url('archive/show/aid/'.$archive['aid'])}" target="_blank">{$archive['title']}</a>
+						</h4>
+						<p>
+							{$archive['subtitle']}
+						</p> <span class="pull-left">{lang('unit')} <?php echo $archive['attr2'];?></span> <span class="pull-right">{getcollect($archive['aid'])}</span>
+					</div>
+				</li> {/loop}
+				{else}
+				<h1>{lang('no_merchandise_for_the_time_being')}</h1>
+				{/if}
+			</ul>
+		</div>
+		<div class="column-pagination">
+			{if isset($page)}
+			{screening_pagination($page,$record_count)}
+			{/if}
+		</div>
+
+	</div>
+</div>
+
+
+
+
+{template_shopping 'footer.html'}

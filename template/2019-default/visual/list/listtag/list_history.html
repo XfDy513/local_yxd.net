@@ -1,0 +1,132 @@
+<div class="codearea">
+	<div id="column-timeline">
+		#[#loop $archives $i $archive#]#
+		<div class="column-timeline-item">
+			<div class="column-timeline-icon">
+				<span class="glyphicon glyphicon-time"></span>
+			</div>
+			<div class="column-timeline-content #[#if $i%2==1#]# right#[#/if#]#">
+				<h2>#[#$archive['title']#]#</h2>
+				<div class="row">
+					<div class="col-sm-3">
+						<img class="img-responsive" src="#[#$archive['thumb']#]#" alt="#[#$archive['stitle']#]#">
+					</div>
+					<div class="col-sm-9">	
+						<p>#[#cut(strip_tags($archive['introduce']),50)#]#</p>
+						<a href="#[#$archive['url']#]#" class="btn" target="_blank">#[#lang('more')#]#</a>
+					</div>					
+				</div>
+			</div>
+		</div>
+		#[#/loop#]#
+		<div class="clearfix"></div>
+	</div>
+</div>
+<div class="viewarea">
+	<div id="column-timeline">
+		<div class="column-timeline-item">
+			<div class="column-timeline-icon">
+				<span class="glyphicon glyphicon-time"></span>
+			</div>
+			<div class="column-timeline-content">
+				<h2><?php echo lang_admin('content_title');?></h2>
+				<div class="row">
+					<div class="col-sm-3">
+						<img class="img-responsive" src="./common/plugins/visual/images/modules/section-pic-7.jpg" >
+					</div>
+					<div class="col-sm-9">	
+						<p><?php echo lang_admin('visual_display_content');?></p>
+						<a class="btn"><?php echo lang_admin('more');?></a>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<div class="column-timeline-item">
+			<div class="column-timeline-icon">
+				<span class="glyphicon glyphicon-time"></span>
+			</div>
+			<div class="column-timeline-content right">
+				<h2><?php echo lang_admin('content_title');?></h2>
+				<div class="row">
+					<div class="col-sm-3">
+						<img class="img-responsive" src="./common/plugins/visual/images/modules/section-pic-2.jpg" >
+					</div>
+					<div class="col-sm-9">	
+						<p><?php echo lang_admin('visual_display_content');?></p>
+						<a class="btn"><?php echo lang_admin('more');?></a>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<div class="column-timeline-item">
+			<div class="column-timeline-icon">
+				<span class="glyphicon glyphicon-time"></span>
+			</div>
+			<div class="column-timeline-content">
+				<h2><?php echo lang_admin('content_title');?></h2>
+				<div class="row">
+					<div class="col-sm-3">
+						<img class="img-responsive" src="./common/plugins/visual/images/modules/section-pic-3.jpg" >
+					</div>
+					<div class="col-sm-9">	
+						<p><?php echo lang_admin('visual_display_content');?></p>
+						<a class="btn"><?php echo lang_admin('more');?></a>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<div class="column-timeline-item">
+			<div class="column-timeline-icon">
+				<span class="glyphicon glyphicon-time"></span>
+			</div>
+			<div class="column-timeline-content right">
+				<h2><?php echo lang_admin('content_title');?></h2>
+				<div class="row">
+					<div class="col-sm-3">
+						<img class="img-responsive" src="./common/plugins/visual/images/modules/section-pic-4.jpg" >
+					</div>
+					<div class="col-sm-9">	
+						<p><?php echo lang_admin('visual_display_content');?></p>
+						<a class="btn"><?php echo lang_admin('more');?></a>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<div class="column-timeline-item">
+			<div class="column-timeline-icon">
+				<span class="glyphicon glyphicon-time"></span>
+			</div>
+			<div class="column-timeline-content">
+				<h2><?php echo lang_admin('content_title');?></h2>
+				<div class="row">
+					<div class="col-sm-3">
+						<img class="img-responsive" src="./common/plugins/visual/images/modules/section-pic-5.jpg" >
+					</div>
+					<div class="col-sm-9">	
+						<p><?php echo lang_admin('visual_display_content');?></p>
+						<a class="btn"><?php echo lang_admin('more');?></a>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<div class="column-timeline-item">
+			<div class="column-timeline-icon">
+				<span class="glyphicon glyphicon-time"></span>
+			</div>
+			<div class="column-timeline-content right">
+				<h2><?php echo lang_admin('content_title');?></h2>
+				<div class="row">
+					<div class="col-sm-3">
+						<img class="img-responsive" src="./common/plugins/visual/images/modules/section-pic-6.jpg" >
+					</div>
+					<div class="col-sm-9">	
+						<p><?php echo lang_admin('visual_display_content');?></p>
+						<a class="btn"><?php echo lang_admin('more');?></a>
+					</div>					
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+

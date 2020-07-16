@@ -1,0 +1,39 @@
+{template 'header.html'}
+<!-- 面包屑导航开始 -->
+{template 'position.html'}
+<!-- 面包屑导航结束 -->
+
+<div class="lianxi">
+		<div class="lianxi1">
+			<div class="box">
+				<div class="lianxi1_1">
+					<span>HELLO.</span> What can we<br />
+					help you with?
+				</div>
+				<div class="lianxi1_2">
+					<dl class="dl1">
+						<dt>{lang(contactus)}</dt>
+						<dd>{get(address)}</dd>
+						<dd>{lang(postcode)}：{get('postcode')}</dd>
+					</dl>
+					<dl class="dl2">
+						<dt>{lang(guesttel)}</dt>
+						<dd>{lang(servertel)}：{get(tel)}</dd>
+						<dd>{lang(mobile)}：{get('mobile')}</dd>
+						<dd>{lang(fax)}：{get(fax)}</dd>
+					</dl>
+					<dl class="dl3">
+						<dt>{lang(guestemail)}</dt>
+						<dd>{lang(guestemail)}：{get(email)}</dd>
+						<dd>{lang(complaint)}{lang(email)}：{get(complaint_email)}</dd>
+					</dl>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+		<div class="lianxi2">
+			{template 'ditu.html'}
+		</div>
+	</div><!-- /box -->
+
+{template 'footer.html'}

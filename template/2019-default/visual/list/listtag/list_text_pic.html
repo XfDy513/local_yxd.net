@@ -1,0 +1,120 @@
+<div class="codearea">
+	<div class="column-list-text-pic">
+		#[#loop $archives $i $archive#]#
+		<div class="column-list-text-pic-item">
+			<div class="column-list-text-pic-img">
+				<a target="_blank" href="#[#$archive['url']#]#" target="_blank"><img src="#[#$archive['thumb']#]#" alt="#[#$archive['stitle']#]#" /></a>
+				<span>#[#=sdate($archive['adddate'],'Y.m.d')#]#</span>
+			</div>
+			<div class="column-list-text-pic-text">
+				<h4><a title="#[#$archive['stitle']#]#" href="#[#$archive['url']#]#" target="_blank">#[#$archive['title']#]#</a></h4>
+				<p>#[#cut(strip_tags($archive['introduce']),160)#]#</p>    
+			</div>
+		</div>
+		#[#/loop#]#
+	</div>
+</div>
+<div class="viewarea">
+	<div class="column-list-text-pic">
+		<div class="column-list-text-pic-item">
+			<div class="column-list-text-pic-img">
+				<a><img src="./common/plugins/visual/images/modules/section-pic-1.jpg" /></a>
+				<span>2019.01.01</span>
+			</div>
+			<div class="column-list-text-pic-text">
+				<h4><a><?php echo lang_admin('content_title');?></a></h4>
+				<p><?php echo lang_admin('visual_display_content');?>…</p>
+			</div>
+		</div>
+		<div class="column-list-text-pic-item">
+			<div class="column-list-text-pic-img">
+				<a><img src="./common/plugins/visual/images/modules/section-pic-2.jpg" /></a>
+				<span>2019.01.01</span>
+			</div>
+			<div class="column-list-text-pic-text">
+				<h4><a>内容标题二</a></h4>
+				<p><?php echo lang_admin('visual_display_content');?>…</p>
+			</div>
+		</div>
+		<div class="column-list-text-pic-item">
+			<div class="column-list-text-pic-img">
+				<a><img src="./common/plugins/visual/images/modules/section-pic-3.jpg" /></a>
+				<span>2019.01.01</span>
+			</div>
+			<div class="column-list-text-pic-text">
+				<h4><a><?php echo lang_admin('content_title');?></a></h4>
+				<p><?php echo lang_admin('visual_display_content');?>…</p>
+			</div>
+		</div>
+		<div class="column-list-text-pic-item">
+			<div class="column-list-text-pic-img">
+				<a><img src="./common/plugins/visual/images/modules/section-pic-4.jpg" /></a>
+				<span>2019.01.01</span>
+			</div>
+			<div class="column-list-text-pic-text">
+				<h4><a><?php echo lang_admin('content_title');?></a></h4>
+				<p><?php echo lang_admin('visual_display_content');?>…</p>
+			</div>
+		</div>
+		<div class="column-list-text-pic-item">
+			<div class="column-list-text-pic-img">
+				<a><img src="./common/plugins/visual/images/modules/section-pic-5.jpg" /></a>
+				<span>2019.01.01</span>
+			</div>
+			<div class="column-list-text-pic-text">
+				<h4><a><?php echo lang_admin('content_title');?></a></h4>
+				<p><?php echo lang_admin('visual_display_content');?>…</p>
+			</div>
+		</div>
+		<div class="column-list-text-pic-item">
+			<div class="column-list-text-pic-img">
+				<a><img src="./common/plugins/visual/images/modules/section-pic-6.jpg" /></a>
+				<span>2019.01.01</span>
+			</div>
+			<div class="column-list-text-pic-text">
+				<h4><a><?php echo lang_admin('content_title');?></a></h4>
+				<p><?php echo lang_admin('visual_display_content');?>…</p>
+			</div>
+		</div>
+		<div class="column-list-text-pic-item">
+			<div class="column-list-text-pic-img">
+				<a><img src="./common/plugins/visual/images/modules/section-pic-7.jpg" /></a>
+				<span>2019.01.01</span>
+			</div>
+			<div class="column-list-text-pic-text">
+				<h4><a><?php echo lang_admin('content_title');?></a></h4>
+				<p><?php echo lang_admin('visual_display_content');?>…</p>
+			</div>
+		</div>
+		<div class="column-list-text-pic-item">
+			<div class="column-list-text-pic-img">
+				<a><img src="./common/plugins/visual/images/modules/section-pic-8.jpg" /></a>
+				<span>2019.01.01</span>
+			</div>
+			<div class="column-list-text-pic-text">
+				<h4><a><?php echo lang_admin('content_title');?></a></h4>
+				<p><?php echo lang_admin('visual_display_content');?>…</p>
+			</div>
+		</div>
+		<div class="column-list-text-pic-item">
+			<div class="column-list-text-pic-img">
+				<a><img src="./common/plugins/visual/images/modules/section-pic-9.jpg" /></a>
+				<span>2019.01.01</span>
+			</div>
+			<div class="column-list-text-pic-text">
+				<h4><a><?php echo lang_admin('content_title');?></a></h4>
+				<p><?php echo lang_admin('visual_display_content');?>…</p>
+			</div>
+		</div>
+		<div class="column-list-text-pic-item">
+			<div class="column-list-text-pic-img">
+				<a><img src="./common/plugins/visual/images/modules/section-pic-10.jpg" /></a>
+				<span>2019.01.01</span>
+			</div>
+			<div class="column-list-text-pic-text">
+				<h4><a><?php echo lang_admin('content_title');?></a></h4>
+				<p><?php echo lang_admin('visual_display_content');?>…</p>
+			</div>
+		</div>
+	</div>
+</div>

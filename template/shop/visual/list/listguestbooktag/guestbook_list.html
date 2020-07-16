@@ -1,0 +1,78 @@
+{if config::get('guestbook_list')=='1'}
+<link href="{$skin_path}/css/guestbook.css" rel="stylesheet">
+
+
+{if config::get('guestbook_user')=='1'}
+<?php if(isset($user) && is_array($user)) { ?>
+	<div class="guestbook_list" style="border:none;">
+	{loop $data $d}
+		<div class="guestbook_content_item">
+			<div class="guestbook_head col-xs-3 col-sm-1">
+				<img src="{getuserheadimg($d['userid'])}" alt="headimage" class="img-responsive">
+			</div>
+			<div class="col-xs-9 col-sm-11">
+				<p><strong>{$d['username']}</strong> <span class="pull-right">{sdate($d['adddate'],'Y-m-d H:i')}</span></p>
+				<div class="guestbook_content ">
+				<p>{$d['content']}</p>
+			</div>
+			{if $d['reply']}
+			<div style="margin:10px 0px 0px 15px;">
+				<p>{lang('admin_reply')}：</p>
+				<div class="guestbook_content ">
+					<dd class="guestbook_admin_reply">
+						<p>{$d['reply']}</p>
+					</dd>
+				</div>
+			</div>
+			{/if}
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	{/loop}
+	</div>
+
+
+<?php
+}else{
+?>
+
+<input type="button" value=" {lang('please')}{lang('login')} " onclick="window.open('{url('user/login')}')" class="btn" />
+
+<?php
+}
+?>
+
+{else}
+<div class="guestbook_list" style="border:none;">
+	{loop $data $d}
+		<div class="guestbook_content_item">
+			<div class="guestbook_head col-xs-3 col-sm-1"><img src="{getuserheadimg($d['userid'])}" alt="headimage" class="img-responsive"></div>
+			<div class="col-xs-9 col-sm-11">
+				<p><strong>{$d['username']}</strong> <span class="pull-right">{sdate($d['adddate'],'Y-m-d H:i')}</span></p>
+				<div class="guestbook_content ">
+					<p>{$d['content']}</p>
+				</div>
+				{if $d['reply']}
+				<div style="margin:10px 0px 0px 15px;">
+					<p>{lang('admin_reply')}：</p>
+					<div class="guestbook_content ">
+						<dd class="guestbook_admin_reply">
+							<p>{$d['reply']}</p>
+						</dd>
+					</div>
+				</div>
+				{/if}
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	{/loop}
+	</div>
+
+
+
+
+{/if}
+
+
+
+{/if}

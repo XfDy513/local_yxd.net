@@ -1,0 +1,69 @@
+<div class="codearea">
+	#[#loop type($typeid) $t#]#
+	<div class="list-title list-title2">
+		<p class="typr-htmldir">#[#$t['htmldir']#]#</p>
+		<h4 class="type-title"><a title="#[#$t['typename']#]#" href="#[#category::url($t['catid'])#]#">#[#$t['typename']#]#</a></h4>
+	</div>
+	<div class="type-list-text">
+		#[#loop archive(0,$t['typeid'],0,'0,0,0',20,'aid',5,false,0) $archive#]#
+		<div class="type-list-text-item">
+			<div class="type-list-text-date">
+				<span>#[#=sdate($archive['adddate'],'d')#]#</span>
+				<p>#[#=sdate($archive['adddate'],'Y-m')#]#</p>
+			</div>
+			<div class="type-list-text-text">
+				<h4><a title="#[#$archive['stitle']#]#" href="#[#$archive['url']#]#" target="_blank">#[#$archive['title']#]#</a></h4>
+				<p>#[#cut(strip_tags($archive['introduce']),140)#]#</p>
+			</div>
+		</div>
+		#[#/loop#]#
+	</div>
+	<div class="blank30"></div>
+	#[#/loop#]#
+</div>
+<div class="viewarea">
+	<div class="list-title list-title2">
+		<p class="column-htmldir">htmldir</p>
+		<h4 class="column-title"><a>分类子栏目一</a></h4>
+	</div>
+	<div class="column-list-text">
+		<div class="column-list-text-item">
+			<div class="column-list-text-date">
+				<span>01</span>
+				<p>2019-01</p>
+			</div>
+			<div class="column-list-text-text">
+				<h4><a>内容标题一</a></h4>
+				<p>内容简介又称内容大要、内容提要、内容摘要等。扼要介绍图书内容和读者对象的说明。又称内容说明、内容简介、内容介绍，是向读者介绍本书内容、特点和读者对象，便于读者了解选购…</p>
+			</div>
+		</div>
+		<div class="column-list-text-item">
+			<div class="column-list-text-date">
+				<span>01</span>
+				<p>2019-01</p>
+			</div>
+			<div class="column-list-text-text">
+				<h4><a>内容标题二</a></h4>
+				<p>内容简介又称内容大要、内容提要、内容摘要等。扼要介绍图书内容和读者对象的说明。又称内容说明、内容简介、内容介绍，是向读者介绍本书内容、特点和读者对象，便于读者了解选购…</p>
+			</div>
+		</div>
+	</div>
+	<div class="blank30"></div>
+	<div class="list-title list-title2">
+		<p class="column-htmldir">htmldir</p>
+		<h4 class="column-title"><a>分类子栏目二</a></h4>
+	</div>
+	<div class="column-list-text">
+		<div class="column-list-text-item">
+			<div class="column-list-text-date">
+				<span>01</span>
+				<p>2019-01</p>
+			</div>
+			<div class="column-list-text-text">
+				<h4><a>内容标题三</a></h4>
+				<p>内容简介又称内容大要、内容提要、内容摘要等。扼要介绍图书内容和读者对象的说明。又称内容说明、内容简介、内容介绍，是向读者介绍本书内容、特点和读者对象，便于读者了解选购…</p>
+			</div>
+		</div>
+	</div>
+	<div class="blank30"></div>
+</div>

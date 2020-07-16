@@ -1,0 +1,1 @@
+a:10:{s:10:"onlymodify";s:0:"";s:4:"name";s:24:"页底栏目子栏目二";s:7:"tagfrom";s:8:"category";s:5:"catid";s:2:"57";s:8:"titlenum";s:1:"6";s:7:"textnum";s:2:"20";s:11:"tagtemplate";s:25:"tag_category_foot-ul.html";s:10:"tagcontent";s:4:"null";s:6:"submit";s:10:"Submission";s:5:"attr1";s:1:"0";}

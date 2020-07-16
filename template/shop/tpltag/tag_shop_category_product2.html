@@ -1,0 +1,7 @@
+{loop plugins::categoryinfo($_catid,$_titlenum,$_textnum) $cat}
+ 
+
+<a title="{$cat['catname']}" href="{$cat['url']}" target="_blank"><img alt="{$cat['catname']}" class="lazy" data-original="{$cat['image']}" /></a>
+
+
+{/loop}

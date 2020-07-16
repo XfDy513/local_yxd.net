@@ -1,0 +1,14 @@
+{loop plugins::categoryinfo($_catid) $c}
+
+
+
+
+<h2 class="wow fadeInDownBig animated" data-wow-delay=".5s">{$c[catname]}</h2>
+
+<p class="wow fadeInUpBig animated" data-wow-delay=".5s">{cut(strip_tags($c['categorycontent']),300)} </p>
+
+<a href="{$c[url]}" class="buy btn-wayra wow zoomInRight animated" data-wow-delay=".5s"> {lang(more)}</a>
+
+
+{/loop}
+

@@ -1,0 +1,79 @@
+<div class="loop-products-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-5">
+                <div class="loop-products-banner-nav">
+                    <label class="loop-products-banner-btn">
+                        <p>所有分类</p>
+                        <button type="button">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </label>
+                    <div class="loop-products-shop-nav" style="display:none;">
+						<div class="container">
+							<div class="loop-products-nav_left">
+								<ul>
+									{loop typies() $i $t}
+									<li data-id="{=$i+1}"> <span><a href="{$t['url']}">{$t['typename']}</a></span></li>
+									{/loop}
+								</ul>
+							</div>
+							<div class="loop-products-nav_right">
+								{loop typies() $t}
+								<div class="loop-products-nav_right_sub hide" data-id="{=$k+1}">
+									{loop typies($t['typeid']) $k $t1}
+									<dl>
+										<dt><a href="{$t1['url']}">{$t1['typename']} <i> &gt;</i></a> </dt>
+										<dd>
+											{loop typies($t1['typeid']) $t2}
+											<a href="{$t2['url']}">{$t2['typename']}</a>
+											{/loop}
+										</dd>
+									</dl>
+									{/loop}
+								</div>
+								{/loop}
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-8 col-sm-7">
+                <div class="input-group">
+                    <input type="text" class="form-control loop-products-banner-input" placeholder="Search for...">
+                    <span class="input-group-btn">
+					<button class="btn loop-products-banner-btn2" type="button">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				  </span>
+                </div><!-- /input-group -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".loop-products-banner-nav").mouseover(function(){
+            $(".loop-products-banner-nav .loop-products-shop-nav").show();
+        });
+        $(".loop-products-banner-nav").mouseleave(function(){
+            $(".loop-products-banner-nav .loop-products-shop-nav").hide();
+        });
+        $(function() {
+            $('.loop-products-banner-nav .loop-products-shop-nav').on('mouseenter', function() {
+                $(".loop-products-nav_right").removeClass('hide');
+            }).on('mouseleave', function() {
+                $(".loop-products-nav_right").addClass('hide');
+                $(".loop-products-nav_right_sub").addClass('hide');
+            }).on('mouseenter', 'li', function(e) {
+                var li_data = $(this).attr('data-id');
+                $(".loop-products-nav_right_sub").addClass('hide');
+                $('.loop-products-nav_right_sub[data-id="' + li_data + '"]').removeClass('hide');
+            })
+        })
+    });
+</script>
+<div class="clearfix"></div>

@@ -1,0 +1,101 @@
+{loop archive($_catid,$_typeid,$_spid,$_area,$_length,$_ordertype,$_limit,$_image,$_attr1,$_son,$_wheretype,$_tpl,$_intro_len,$_istop) $i $archive}
+
+
+
+{if $i==0}
+
+			<div class="gallery-info">	
+				<div class="col-md-6 gallery-grids glry-grid1">
+
+					<div class="gallery-grids-top">
+
+						<a class="b-link-stripe b-animate-go wow zoomIn animated" data-wow-delay=".5s" href="{$archive['thumb']}" data-lightbox="example-set" data-title="{$archive[intro]}">
+							<img src="{$archive['thumb']}" class="img-responsive" alt="{$archive['stitle']}"/>
+							<div class="b-wrapper">
+								<span class="b-animate b-from-left">
+									<img class="img-responsive" src="{$skin_path}/images/base/e.png" />
+								</span>					
+							</div>
+						</a>
+
+					</div>
+{/if}
+{if $i==1}
+					<div class="gallery-grids-top">
+						<div class="col-md-6 bottom-grids">
+						<a class="b-link-stripe b-animate-go wow zoomIn animated" data-wow-delay=".5s" href="{$archive['thumb']}" data-lightbox="example-set" data-title="{$archive[intro]}">
+							<img src="{$archive['thumb']}" class="img-responsive" alt="{$archive['stitle']}"/>
+							<div class="b-wrapper">
+								<span class="b-animate b-from-left">
+									<img class="img-responsive" src="{$skin_path}/images/base/e.png" />
+								</span>					
+							</div>
+						</a>
+						</div>
+{/if}
+{if $i==2}
+						<div class="col-md-6 bottom-grids">
+						<a class="b-link-stripe b-animate-go wow zoomIn animated" data-wow-delay=".5s" href="{$archive['thumb']}" data-lightbox="example-set" data-title="{$archive[intro]}">
+							<img src="{$archive['thumb']}" class="img-responsive" alt="{$archive['stitle']}"/>
+							<div class="b-wrapper">
+								<span class="b-animate b-from-left">
+									<img class="img-responsive" src="{$skin_path}/images/base/e.png" />
+								</span>					
+							</div>
+						</a>
+						</div>
+
+						<div class="clearfix"></div>
+					</div>
+				</div>
+{/if}
+{if $i==3}
+				<div class="col-md-3 gallery-grids glry-grid2">
+						<a class="b-link-stripe b-animate-go wow zoomIn animated" data-wow-delay=".5s" href="{$archive['thumb']}" data-lightbox="example-set" data-title="{$archive[intro]}">
+							<img src="{$archive['thumb']}" class="img-responsive" alt="{$archive['stitle']}"/>
+							<div class="b-wrapper">
+								<span class="b-animate b-from-left">
+									<img class="img-responsive" src="{$skin_path}/images/base/e.png" />
+								</span>					
+							</div>
+						</a>
+				</div>
+{/if}
+{if $i==4}
+				<div class="col-md-3 gallery-grids glry-grid3">
+
+						<a class="b-link-stripe b-animate-go wow zoomIn animated" data-wow-delay=".5s" href="{$archive['thumb']}" data-lightbox="example-set" data-title="{$archive[intro]}">
+							<img src="{$archive['thumb']}" class="img-responsive" alt="{$archive['stitle']}"/>
+							<div class="b-wrapper">
+								<span class="b-animate b-from-left">
+									<img class="img-responsive" src="{$skin_path}/images/base/e.png" />
+								</span>					
+							</div>
+						</a>
+{/if}
+{if $i==5}
+						<a class="b-link-stripe b-animate-go wow zoomIn animated" data-wow-delay=".5s" href="{$archive['thumb']}" data-lightbox="example-set" data-title="{$archive[intro]}">
+							<img src="{$archive['thumb']}" class="img-responsive" alt="{$archive['stitle']}"/>
+							<div class="b-wrapper">
+								<span class="b-animate b-from-left">
+									<img class="img-responsive" src="{$skin_path}/images/base/e.png" />
+								</span>					
+							</div>
+						</a>
+
+				</div>
+
+{/if}
+
+
+
+
+
+
+
+
+
+
+
+
+{/loop}
